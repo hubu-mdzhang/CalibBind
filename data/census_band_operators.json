@@ -1,0 +1,1564 @@
+{
+ "meta": {
+  "total_operators": 488,
+  "total_params": 1716,
+  "census_hit": 84,
+  "ab_main": 34,
+  "covered_t1t5": 29
+ },
+ "reconciliation": {
+  "covered_and_hit": {
+   "Coverage.LST": "T1",
+   "Coverage.NDBI": "T1",
+   "Coverage.NDSSI": "T1",
+   "Coverage.NDVI": "T1",
+   "Coverage.NDWI": "T1",
+   "Coverage.SFSTextureExtractionByOTB": "T2",
+   "Coverage.addStyles": "T3",
+   "Coverage.aspectByGDAL": "T2",
+   "Coverage.broveyFusion": "T4",
+   "Coverage.contourByGDAL": "T2",
+   "Coverage.contourPolygonByGDAL": "T2",
+   "Coverage.edgeExtractionByOTB": "T2",
+   "Coverage.fillNodataByGDAL": "T2",
+   "Coverage.hillShadeByGDAL": "T2",
+   "Coverage.histogramBin": "T2",
+   "Coverage.normalizedDifference": "T3",
+   "Coverage.panSharp": "T4",
+   "Coverage.polygonizeByGDAL": "T2",
+   "Coverage.proximityByGDAL": "T2",
+   "Coverage.radiometricIndicesByOTB": "T5",
+   "Coverage.reduceRegion": "T2",
+   "Coverage.rename": "T3",
+   "Coverage.rescaleRasterByQGIS": "T2",
+   "Coverage.roughnessByGDAL": "T2",
+   "Coverage.selectBands": "T3",
+   "Coverage.slopeByGDAL": "T2",
+   "Coverage.tpiTopographicPositionIndexByGDAL": "T2",
+   "Coverage.triTerrainRuggednessIndexByGDAL": "T2",
+   "CoverageCollection.addStyles": "T3"
+  },
+  "covered_not_hit": {}
+ },
+ "operators": {
+  "Coverage.IHSFusion": {
+   "alias": "IHS变换融合",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 2,
+   "band_params": [
+    {
+     "param": "coverage2",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.KMeansClassificationByOTB": {
+   "alias": "使用OTB K均值分类",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 13,
+   "band_params": [
+    {
+     "param": "in",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.LST": {
+   "alias": "地表温度计算",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 2,
+   "band_params": [
+    {
+     "param": "coverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    },
+    {
+     "param": "tirBandName",
+     "type": "String",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (tirBandName)"
+    }
+   ]
+  },
+  "Coverage.NDBI": {
+   "alias": "归一化建筑指数",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 3,
+   "band_params": [
+    {
+     "param": "coverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    },
+    {
+     "param": "swirBandName",
+     "type": "String",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (swirBandName)"
+    },
+    {
+     "param": "nirBandName",
+     "type": "String",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (nirBandName)"
+    }
+   ]
+  },
+  "Coverage.NDSSI": {
+   "alias": "归一化悬浮泥沙指数",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 3,
+   "band_params": [
+    {
+     "param": "coverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    },
+    {
+     "param": "blueBandName",
+     "type": "String",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (blueBandName)"
+    },
+    {
+     "param": "nirBandName",
+     "type": "String",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (nirBandName)"
+    }
+   ]
+  },
+  "Coverage.NDVI": {
+   "alias": "归一化植被指数",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 3,
+   "band_params": [
+    {
+     "param": "coverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    },
+    {
+     "param": "redBandName",
+     "type": "String",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (redBandName)"
+    },
+    {
+     "param": "nirBandName",
+     "type": "String",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (nirBandName)"
+    }
+   ]
+  },
+  "Coverage.NDWI": {
+   "alias": "归一化水体指数",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 3,
+   "band_params": [
+    {
+     "param": "coverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    },
+    {
+     "param": "greenBandName",
+     "type": "String",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (greenBandName)"
+    },
+    {
+     "param": "nirBandName",
+     "type": "String",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (nirBandName)"
+    }
+   ]
+  },
+  "Coverage.PCA": {
+   "alias": "主成分分析",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 2,
+   "band_params": [
+    {
+     "param": "coverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.RandomForestTrainAndRegress": {
+   "alias": "随机森林训练与回归",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 14,
+   "band_params": [
+    {
+     "param": "featuresCoverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    },
+    {
+     "param": "predictCoverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.SFSTextureExtractionByOTB": {
+   "alias": "使用OTB SFS纹理提取",
+   "namespace": "Coverage",
+   "tier": "B",
+   "n_params": 7,
+   "band_params": [
+    {
+     "param": "channel",
+     "type": "Integer",
+     "resource_type": "numeric",
+     "tier": "B",
+     "why": "参数名命中 (channel)"
+    }
+   ]
+  },
+  "Coverage.addBands": {
+   "alias": "添加波段",
+   "namespace": "Coverage",
+   "tier": "B",
+   "n_params": 5,
+   "band_params": [
+    {
+     "param": "dstCoverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    },
+    {
+     "param": "srcCoverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    },
+    {
+     "param": "names",
+     "type": "List[String]",
+     "resource_type": "scalar",
+     "tier": "B",
+     "why": "别名命中 (要添加的波段名称列表)"
+    },
+    {
+     "param": "overwrite",
+     "type": "Boolean",
+     "resource_type": "scalar",
+     "tier": "B",
+     "why": "别名命中 (是否覆盖同名波段)"
+    },
+    {
+     "param": "clip_to_smallest",
+     "type": "Boolean",
+     "resource_type": "scalar",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.addStyles": {
+   "alias": "为单景栅格数据附加上图样式",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 10,
+   "band_params": [
+    {
+     "param": "bands",
+     "type": "List[String]",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (bands)"
+    }
+   ]
+  },
+  "Coverage.aspectByGDAL": {
+   "alias": "使用GDAL坡向计算",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 7,
+   "band_params": [
+    {
+     "param": "band",
+     "type": "Integer",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (band)"
+    }
+   ]
+  },
+  "Coverage.bandNames": {
+   "alias": "获取所有波段名称",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 1,
+   "band_params": [
+    {
+     "param": "coverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.bandNum": {
+   "alias": "获取波段数量",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 1,
+   "band_params": [
+    {
+     "param": "coverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.bandTypes": {
+   "alias": "获取所有波段像元类型",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 1,
+   "band_params": [
+    {
+     "param": "coverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.bisectingKMeans": {
+   "alias": "二分K均值聚类",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 5,
+   "band_params": [
+    {
+     "param": "featuresCoverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.broveyFusion": {
+   "alias": "Brovey变换融合",
+   "namespace": "Coverage",
+   "tier": "B",
+   "n_params": 3,
+   "band_params": [
+    {
+     "param": "mul",
+     "type": "List[String]",
+     "resource_type": "scalar",
+     "tier": "B",
+     "why": "融合参数 (mul)"
+    },
+    {
+     "param": "pan",
+     "type": "String",
+     "resource_type": "scalar",
+     "tier": "B",
+     "why": "融合参数 (pan)"
+    }
+   ]
+  },
+  "Coverage.calLSWI": {
+   "alias": "陆地表面水分指数计算",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 1,
+   "band_params": [
+    {
+     "param": "input",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.calNDVI": {
+   "alias": "归一化植被指数计算",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 1,
+   "band_params": [
+    {
+     "param": "input",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.cannyEdgeDetection": {
+   "alias": "Canny边缘检测",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 3,
+   "band_params": [
+    {
+     "param": "coverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.catTwoCoverage": {
+   "alias": "拼接两个覆盖数据",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 2,
+   "band_params": [
+    {
+     "param": "coverage1",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.clipRasterByMaskLayerByGDAL": {
+   "alias": "基于GDAL按掩膜层裁剪栅格",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 13,
+   "band_params": [
+    {
+     "param": "cropToCutLine",
+     "type": "String",
+     "resource_type": "band_range",
+     "tier": "C",
+     "why": "band_range 约束型 (cropToCutLine)"
+    },
+    {
+     "param": "alphaBand",
+     "type": "String",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (alphaBand)"
+    }
+   ]
+  },
+  "Coverage.clusteringEvaluator": {
+   "alias": "聚类评估器",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 4,
+   "band_params": [
+    {
+     "param": "featuresCoverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.compositeByGrass": {
+   "alias": "基于GRASS复合运算",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 4,
+   "band_params": [
+    {
+     "param": "red",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    },
+    {
+     "param": "green",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    },
+    {
+     "param": "blue",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.contourByGDAL": {
+   "alias": "使用GDAL等高线生成",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 10,
+   "band_params": [
+    {
+     "param": "band",
+     "type": "Integer",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (band)"
+    }
+   ]
+  },
+  "Coverage.contourPolygonByGDAL": {
+   "alias": "使用GDAL等高线面生成",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 11,
+   "band_params": [
+    {
+     "param": "band",
+     "type": "Integer",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (band)"
+    }
+   ]
+  },
+  "Coverage.decisionTreeClassifierModel": {
+   "alias": "决策树分类模型",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 9,
+   "band_params": [
+    {
+     "param": "featuresCoverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.decisionTreeRegressionModel": {
+   "alias": "决策树回归模型",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 12,
+   "band_params": [
+    {
+     "param": "featuresCoverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.dimensionalityReductionByOTB": {
+   "alias": "使用OTB降维处理",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 3,
+   "band_params": [
+    {
+     "param": "input",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.edgeExtractionByOTB": {
+   "alias": "使用OTB边缘提取",
+   "namespace": "Coverage",
+   "tier": "B",
+   "n_params": 3,
+   "band_params": [
+    {
+     "param": "channel",
+     "type": "Integer",
+     "resource_type": "numeric",
+     "tier": "B",
+     "why": "参数名命中 (channel)"
+    }
+   ]
+  },
+  "Coverage.fillNodataByGDAL": {
+   "alias": "基于GDAL填充无效值",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 8,
+   "band_params": [
+    {
+     "param": "band",
+     "type": "Integer",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (band)"
+    }
+   ]
+  },
+  "Coverage.gaussianMixture": {
+   "alias": "高斯混合模型聚类",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 5,
+   "band_params": [
+    {
+     "param": "featuresCoverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.generalizedLinearRegressionModel": {
+   "alias": "广义线性回归模型",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 11,
+   "band_params": [
+    {
+     "param": "featuresCoverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.hillShadeByGDAL": {
+   "alias": "使用GDAL山体阴影",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 12,
+   "band_params": [
+    {
+     "param": "combined",
+     "type": "String",
+     "resource_type": "scalar",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    },
+    {
+     "param": "band",
+     "type": "Integer",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (band)"
+    }
+   ]
+  },
+  "Coverage.histogram": {
+   "alias": "直方图计算",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 2,
+   "band_params": [
+    {
+     "param": "coverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.histogramBin": {
+   "alias": "直方图分箱",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 5,
+   "band_params": [
+    {
+     "param": "bandIndex",
+     "type": "Integer",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (bandIndex)"
+    }
+   ]
+  },
+  "Coverage.hsvToRgb": {
+   "alias": "HSV转RGB色彩空间",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 1,
+   "band_params": [
+    {
+     "param": "coverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.isotonicRegressionModel": {
+   "alias": "保序回归模型",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 3,
+   "band_params": [
+    {
+     "param": "featuresCoverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.linearRegressionModel": {
+   "alias": "线性回归模型",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 10,
+   "band_params": [
+    {
+     "param": "featuresCoverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.linearSVCClassifierModel": {
+   "alias": "线性SVC分类模型",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 4,
+   "band_params": [
+    {
+     "param": "featuresCoverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.logisticRegressionClassifierModel": {
+   "alias": "逻辑回归分类模型",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 10,
+   "band_params": [
+    {
+     "param": "featuresCoverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.mlKMeans": {
+   "alias": "机器学习K均值聚类",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 5,
+   "band_params": [
+    {
+     "param": "featuresCoverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.multivariateAlterationDetectorByOTB": {
+   "alias": "使用OTB多元变化检测",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 2,
+   "band_params": [
+    {
+     "param": "inputBefore",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    },
+    {
+     "param": "inputAfter",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.naiveBayesClassifierModel": {
+   "alias": "朴素贝叶斯分类模型",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 4,
+   "band_params": [
+    {
+     "param": "featuresCoverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.normalizedDifference": {
+   "alias": "通用归一化差值计算",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 2,
+   "band_params": [
+    {
+     "param": "coverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    },
+    {
+     "param": "bandNames",
+     "type": "List[String]",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (bandNames)"
+    }
+   ]
+  },
+  "Coverage.oneVsRestClassifierModel": {
+   "alias": "一对多分类模型",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 3,
+   "band_params": [
+    {
+     "param": "featuresCoverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.outBinByGrass": {
+   "alias": "使用GRASS输出二值栅格",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 4,
+   "band_params": [
+    {
+     "param": "order",
+     "type": "String",
+     "resource_type": "scalar",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.panSharp": {
+   "alias": "全色锐化",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 5,
+   "band_params": [
+    {
+     "param": "coverage1",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    },
+    {
+     "param": "coverage2",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "B",
+     "why": "别名命中 (输入的全色影像数据)"
+    },
+    {
+     "param": "bandList",
+     "type": "List[Integer]",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (bandList)"
+    },
+    {
+     "param": "weightList",
+     "type": "List[Double]",
+     "resource_type": "scalar",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.polygonizeByGDAL": {
+   "alias": "使用GDAL栅格矢量化",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 6,
+   "band_params": [
+    {
+     "param": "band",
+     "type": "Integer",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (band)"
+    }
+   ]
+  },
+  "Coverage.proximityByGDAL": {
+   "alias": "基于GDAL邻近度分析",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 10,
+   "band_params": [
+    {
+     "param": "band",
+     "type": "Integer",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (band)"
+    }
+   ]
+  },
+  "Coverage.radiometricIndicesByOTB": {
+   "alias": "使用OTB辐射指数计算",
+   "namespace": "Coverage",
+   "tier": "B",
+   "n_params": 8,
+   "band_params": [
+    {
+     "param": "input",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    },
+    {
+     "param": "channelsBlue",
+     "type": "Integer",
+     "resource_type": "numeric",
+     "tier": "B",
+     "why": "参数名命中 (channelsBlue)"
+    },
+    {
+     "param": "channelsGreen",
+     "type": "Integer",
+     "resource_type": "numeric",
+     "tier": "B",
+     "why": "参数名命中 (channelsGreen)"
+    },
+    {
+     "param": "channelsRed",
+     "type": "Integer",
+     "resource_type": "numeric",
+     "tier": "B",
+     "why": "参数名命中 (channelsRed)"
+    },
+    {
+     "param": "channelsNir",
+     "type": "Integer",
+     "resource_type": "numeric",
+     "tier": "B",
+     "why": "参数名命中 (channelsNir)"
+    },
+    {
+     "param": "channelsMir",
+     "type": "Integer",
+     "resource_type": "numeric",
+     "tier": "B",
+     "why": "参数名命中 (channelsMir)"
+    }
+   ]
+  },
+  "Coverage.randomForestClassifierModel": {
+   "alias": "随机森林分类模型",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 12,
+   "band_params": [
+    {
+     "param": "featuresCoverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.randomForestRegressionModel": {
+   "alias": "随机森林回归模型",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 13,
+   "band_params": [
+    {
+     "param": "featuresCoverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.rasterizeOverByGDAL": {
+   "alias": "使用GDAL叠加栅格化",
+   "namespace": "Coverage",
+   "tier": "B",
+   "n_params": 5,
+   "band_params": [
+    {
+     "param": "add",
+     "type": "String",
+     "resource_type": "scalar",
+     "tier": "B",
+     "why": "别名命中 (加法通道)"
+    }
+   ]
+  },
+  "Coverage.rasterizeOverFixedValueByGDAL": {
+   "alias": "使用GDAL固定值叠加栅格化",
+   "namespace": "Coverage",
+   "tier": "B",
+   "n_params": 5,
+   "band_params": [
+    {
+     "param": "add",
+     "type": "String",
+     "resource_type": "scalar",
+     "tier": "B",
+     "why": "别名命中 (加法通道)"
+    }
+   ]
+  },
+  "Coverage.reduceRegion": {
+   "alias": "按区域栅格统计运算",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 7,
+   "band_params": [
+    {
+     "param": "coverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    },
+    {
+     "param": "bandIndex",
+     "type": "Integer",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (bandIndex)"
+    }
+   ]
+  },
+  "Coverage.reduction": {
+   "alias": "栅格统计运算",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 4,
+   "band_params": [
+    {
+     "param": "coverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    },
+    {
+     "param": "ignore_nodata",
+     "type": "Boolean",
+     "resource_type": "scalar",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    },
+    {
+     "param": "clip_to_smallest",
+     "type": "Boolean",
+     "resource_type": "scalar",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.rename": {
+   "alias": "波段重命名",
+   "namespace": "Coverage",
+   "tier": "B",
+   "n_params": 2,
+   "band_params": [
+    {
+     "param": "coverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    },
+    {
+     "param": "name",
+     "type": "List[String]",
+     "resource_type": "scalar",
+     "tier": "B",
+     "why": "别名命中 (新的波段名称列表)"
+    }
+   ]
+  },
+  "Coverage.rescaleRasterByQGIS": {
+   "alias": "基于QGIS栅格缩放",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 4,
+   "band_params": [
+    {
+     "param": "band",
+     "type": "Integer",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (band)"
+    }
+   ]
+  },
+  "Coverage.rgbToHsv": {
+   "alias": "RGB转HSV色彩空间",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 1,
+   "band_params": [
+    {
+     "param": "coverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.rgbToPctByGDAL": {
+   "alias": "基于GDAL RGB转调色板",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 2,
+   "band_params": [
+    {
+     "param": "input",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.roughnessByGDAL": {
+   "alias": "使用GDAL粗糙度计算",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 4,
+   "band_params": [
+    {
+     "param": "band",
+     "type": "Integer",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (band)"
+    }
+   ]
+  },
+  "Coverage.selectBands": {
+   "alias": "选择波段",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 2,
+   "band_params": [
+    {
+     "param": "coverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    },
+    {
+     "param": "bands",
+     "type": "List[String]",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (bands)"
+    }
+   ]
+  },
+  "Coverage.setValidDataRange": {
+   "alias": "设置有效数据范围",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 2,
+   "band_params": [
+    {
+     "param": "range",
+     "type": "List[Double]",
+     "resource_type": "band_range",
+     "tier": "C",
+     "why": "band_range 约束型 (range)"
+    }
+   ]
+  },
+  "Coverage.slice": {
+   "alias": "切片提取",
+   "namespace": "Coverage",
+   "tier": "B",
+   "n_params": 3,
+   "band_params": [
+    {
+     "param": "coverage",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    },
+    {
+     "param": "start",
+     "type": "Integer",
+     "resource_type": "scalar",
+     "tier": "B",
+     "why": "别名命中 (波段起始索引)"
+    },
+    {
+     "param": "end",
+     "type": "Integer",
+     "resource_type": "scalar",
+     "tier": "B",
+     "why": "别名命中 (波段结束索引)"
+    }
+   ]
+  },
+  "Coverage.slopeByGDAL": {
+   "alias": "使用GDAL坡度计算",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 8,
+   "band_params": [
+    {
+     "param": "band",
+     "type": "Integer",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (band)"
+    }
+   ]
+  },
+  "Coverage.terrFilter": {
+   "alias": "地形滤波",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 2,
+   "band_params": [
+    {
+     "param": "ranges",
+     "type": "List[Any]",
+     "resource_type": "band_range",
+     "tier": "C",
+     "why": "band_range 约束型 (ranges)"
+    }
+   ]
+  },
+  "Coverage.tpiTopographicPositionIndexByGDAL": {
+   "alias": "使用GDAL地形位置指数",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 4,
+   "band_params": [
+    {
+     "param": "band",
+     "type": "Integer",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (band)"
+    }
+   ]
+  },
+  "Coverage.translateByGDAL": {
+   "alias": "使用GDAL栅格平移",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 7,
+   "band_params": [
+    {
+     "param": "input",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.triTerrainRuggednessIndexByGDAL": {
+   "alias": "使用GDAL地形崎岖指数",
+   "namespace": "Coverage",
+   "tier": "A",
+   "n_params": 4,
+   "band_params": [
+    {
+     "param": "band",
+     "type": "Integer",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (band)"
+    }
+   ]
+  },
+  "Coverage.unmask": {
+   "alias": "去除掩膜",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 2,
+   "band_params": [
+    {
+     "param": "coverage2",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "Coverage.updateMask": {
+   "alias": "更新掩膜",
+   "namespace": "Coverage",
+   "tier": "C",
+   "n_params": 2,
+   "band_params": [
+    {
+     "param": "coverage2",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "CoverageCollection.addStyles": {
+   "alias": "为单栅格数据集合附加上图样式",
+   "namespace": "CoverageCollection",
+   "tier": "A",
+   "n_params": 10,
+   "band_params": [
+    {
+     "param": "bands",
+     "type": "List[String]",
+     "resource_type": "band",
+     "tier": "A",
+     "why": "resource_type=band (bands)"
+    }
+   ]
+  },
+  "FeatureCollection.filterDate": {
+   "alias": "按日期过滤",
+   "namespace": "FeatureCollection",
+   "tier": "C",
+   "n_params": 4,
+   "band_params": [
+    {
+     "param": "end",
+     "type": "String",
+     "resource_type": "scalar",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "FeatureCollection.simpleKriging": {
+   "alias": "简单克里金插值",
+   "namespace": "FeatureCollection",
+   "tier": "C",
+   "n_params": 7,
+   "band_params": [
+    {
+     "param": "range",
+     "type": "Double",
+     "resource_type": "band_range",
+     "tier": "C",
+     "why": "band_range 约束型 (range)"
+    }
+   ]
+  },
+  "SpatialStats.SpatialInterpolation.selfDefinedKriging": {
+   "alias": "自定义克里金插值",
+   "namespace": "SpatialStats",
+   "tier": "C",
+   "n_params": 8,
+   "band_params": [
+    {
+     "param": "range",
+     "type": "Double",
+     "resource_type": "band_range",
+     "tier": "C",
+     "why": "band_range 约束型 (range)"
+    }
+   ]
+  },
+  "whu-cultivated_land": {
+   "alias": "耕地提取",
+   "namespace": "whu-cultivated_land",
+   "tier": "C",
+   "n_params": 1,
+   "band_params": [
+    {
+     "param": "input",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "whu-mainroad": {
+   "alias": "主干道提取",
+   "namespace": "whu-mainroad",
+   "tier": "C",
+   "n_params": 1,
+   "band_params": [
+    {
+     "param": "input",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "whu-playground": {
+   "alias": "操场检测",
+   "namespace": "whu-playground",
+   "tier": "C",
+   "n_params": 4,
+   "band_params": [
+    {
+     "param": "input",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    },
+    {
+     "param": "crop_size",
+     "type": "Integer",
+     "resource_type": "band_range",
+     "tier": "C",
+     "why": "band_range 约束型 (crop_size)"
+    }
+   ]
+  },
+  "whu-ship": {
+   "alias": "船舶检测",
+   "namespace": "whu-ship",
+   "tier": "C",
+   "n_params": 4,
+   "band_params": [
+    {
+     "param": "crop_size",
+     "type": "Integer",
+     "resource_type": "band_range",
+     "tier": "C",
+     "why": "band_range 约束型 (crop_size)"
+    }
+   ]
+  },
+  "whu01_buildtop": {
+   "alias": "屋顶提取",
+   "namespace": "whu01_buildtop",
+   "tier": "C",
+   "n_params": 4,
+   "band_params": [
+    {
+     "param": "input",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  },
+  "whu01_plane": {
+   "alias": "飞机检测",
+   "namespace": "whu01_plane",
+   "tier": "C",
+   "n_params": 4,
+   "band_params": [
+    {
+     "param": "crop_size",
+     "type": "Integer",
+     "resource_type": "band_range",
+     "tier": "C",
+     "why": "band_range 约束型 (crop_size)"
+    }
+   ]
+  },
+  "whu01_water": {
+   "alias": "水体提取",
+   "namespace": "whu01_water",
+   "tier": "C",
+   "n_params": 1,
+   "band_params": [
+    {
+     "param": "input",
+     "type": "Coverage",
+     "resource_type": "coverage",
+     "tier": "C",
+     "why": "仅描述提及波段（疑似）"
+    }
+   ]
+  }
+ }
+}

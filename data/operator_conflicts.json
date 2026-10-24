@@ -1,0 +1,15 @@
+[
+ {
+  "operator": "Coverage.NDSSI",
+  "alias": "归一化悬浮泥沙指数",
+  "description_says": [
+   "红",
+   "近红外"
+  ],
+  "params_require": [
+   "蓝",
+   "近红外"
+  ],
+  "description": "归一化盐渍化指数算子用于计算归一化土壤盐渍化指数，通过红光波段（Red）与近红外波段（NIR）的归一化差值来评估土壤盐渍化程度。NDSSI公式为NDSSI=(Red-NIR)/(Red+NIR)，其原理基于盐渍化土壤在红光波段具有较高的光谱反射率，而在近红外波段的反射率相对较低，盐渍化越严重，该指数值越高。该指数在干旱和半干旱地区的土壤盐渍化监测、灌溉农业的土壤退化评估和土地整治规划中具有重要应用。在ArcGISPro中可通过RasterCalculator或Indices工具实现"
+ }
+]

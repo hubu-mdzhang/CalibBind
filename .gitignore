@@ -1,0 +1,9 @@
+config.ini
+.env
+credentials.json
+secrets.json
+__pycache__/
+*.pyc
+*.log
+*.bak
+.DS_Store

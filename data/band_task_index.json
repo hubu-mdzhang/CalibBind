@@ -1,0 +1,130 @@
+{
+  "product_total": 56,
+  "product_usable": 36,
+  "product_rank_reliable": 30,
+  "tasks": {
+    "T1": {
+      "label": "角色波段名",
+      "desc": "由光谱角色反查该产品下的波段标签，最主流的波段绑定形式",
+      "answer_type": "band_name",
+      "operators": [
+        "Coverage.LST",
+        "Coverage.NDBI",
+        "Coverage.NDSSI",
+        "Coverage.NDVI",
+        "Coverage.NDWI"
+      ],
+      "operator_count": 5,
+      "sample_count": 105,
+      "product_count": 31,
+      "unique_candidate_sets": 16,
+      "per_operator": {
+        "Coverage.NDVI": 31,
+        "Coverage.NDSSI": 29,
+        "Coverage.NDWI": 24,
+        "Coverage.NDBI": 16,
+        "Coverage.LST": 5
+      }
+    },
+    "T2": {
+      "label": "角色→波段序号",
+      "desc": "答案形式是波段在产品中的位置（bandRank）而非名称；需先理解产品波段排序规则，且默认值几乎全是 1，几乎无提示信息。这是与 T1 语义相同、输出形式不同的对照任务",
+      "answer_type": "band_index",
+      "operators": [
+        "Coverage.SFSTextureExtractionByOTB",
+        "Coverage.aspectByGDAL",
+        "Coverage.contourByGDAL",
+        "Coverage.contourPolygonByGDAL",
+        "Coverage.edgeExtractionByOTB",
+        "Coverage.fillNodataByGDAL",
+        "Coverage.hillShadeByGDAL",
+        "Coverage.histogramBin",
+        "Coverage.polygonizeByGDAL",
+        "Coverage.proximityByGDAL",
+        "Coverage.reduceRegion",
+        "Coverage.rescaleRasterByQGIS",
+        "Coverage.roughnessByGDAL",
+        "Coverage.slopeByGDAL",
+        "Coverage.tpiTopographicPositionIndexByGDAL",
+        "Coverage.triTerrainRuggednessIndexByGDAL"
+      ],
+      "operator_count": 16,
+      "sample_count": 306,
+      "product_count": 28,
+      "unique_candidate_sets": 16,
+      "per_operator": {
+        "Coverage.SFSTextureExtractionByOTB": 28,
+        "Coverage.edgeExtractionByOTB": 28,
+        "Coverage.polygonizeByGDAL": 27,
+        "Coverage.contourByGDAL": 27,
+        "Coverage.contourPolygonByGDAL": 27,
+        "Coverage.reduceRegion": 26,
+        "Coverage.histogramBin": 26,
+        "Coverage.aspectByGDAL": 13,
+        "Coverage.hillShadeByGDAL": 13,
+        "Coverage.slopeByGDAL": 13,
+        "Coverage.roughnessByGDAL": 13,
+        "Coverage.fillNodataByGDAL": 13,
+        "Coverage.proximityByGDAL": 13,
+        "Coverage.tpiTopographicPositionIndexByGDAL": 13,
+        "Coverage.triTerrainRuggednessIndexByGDAL": 13,
+        "Coverage.rescaleRasterByQGIS": 13
+      }
+    },
+    "T3": {
+      "label": "波段名列表",
+      "desc": "一次给出一组波段名；normalizedDifference 固定两个角色，selectBands/rename 为任意子集选择",
+      "answer_type": "band_list",
+      "operators": [
+        "Coverage.addStyles",
+        "Coverage.normalizedDifference",
+        "Coverage.rename",
+        "Coverage.selectBands",
+        "CoverageCollection.addStyles"
+      ],
+      "operator_count": 5,
+      "sample_count": 129,
+      "product_count": 32,
+      "unique_candidate_sets": 17,
+      "per_operator": {
+        "Coverage.normalizedDifference": 31,
+        "Coverage.selectBands": 25,
+        "Coverage.rename": 25,
+        "Coverage.addStyles": 24,
+        "CoverageCollection.addStyles": 24
+      }
+    },
+    "T4": {
+      "label": "融合配对",
+      "desc": "需同时给出参与融合的多光谱波段组与对应全色波段；全色波段识别本身即为一个独立子任务（跨可见光—近红外的宽波段）。注意两类算子的答案形式不同：panSharp 的 bandList 是 List[Integer]（序号），broveyFusion 的 mul 是 List[String]（波段名）",
+      "answer_type": "mixed",
+      "operators": [
+        "Coverage.broveyFusion",
+        "Coverage.panSharp"
+      ],
+      "operator_count": 2,
+      "sample_count": 26,
+      "product_count": 22,
+      "unique_candidate_sets": 13,
+      "per_operator": {
+        "Coverage.panSharp": 22,
+        "Coverage.broveyFusion": 4
+      }
+    },
+    "T5": {
+      "label": "多通道索引",
+      "desc": "一次请求需绑定 5 个通道（蓝/绿/红/近红外/中红外），单次决策复杂度最高，且全部为序号答案",
+      "answer_type": "band_index",
+      "operators": [
+        "Coverage.radiometricIndicesByOTB"
+      ],
+      "operator_count": 1,
+      "sample_count": 13,
+      "product_count": 13,
+      "unique_candidate_sets": 7,
+      "per_operator": {
+        "Coverage.radiometricIndicesByOTB": 13
+      }
+    }
+  }
+}

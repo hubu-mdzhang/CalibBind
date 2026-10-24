@@ -1,0 +1,901 @@
+[
+ {
+  "operator": "Coverage.NDSSI",
+  "alias": "归一化悬浮泥沙指数",
+  "description": "归一化盐渍化指数算子用于计算归一化土壤盐渍化指数，通过红光波段（Red）与近红外波段（NIR）的归一化差值来评估土壤盐渍化程度。NDSSI公式为NDSSI=(Red-NIR)/(Red+NIR)，其原理基于盐渍化土壤在红光波段具有较高的光谱反射率，而在近红外波段的反射率相对较低，盐渍化越严重，该指数值越高。该指数在干旱和半干旱地区的土壤盐渍化监测、灌溉农业的土壤退化评估和土地整治规划中具有重要应用。在ArcGISPro中可通过RasterCalculator或Indices工具实现",
+  "catalogName": "遥感指数计算",
+  "output": {
+   "name": "output",
+   "type": "Coverage",
+   "alias": "栅格数据",
+   "format": "TIF",
+   "aliasEn": "output",
+   "description": "输出为NDSSI（归一化裸土指数）栅格，每个像元值域[-1,1]，正值表示裸土地表，负值表示非裸土。"
+  },
+  "band_params": [
+   {
+    "name": "blueBandName",
+    "type": "String",
+    "alias": "蓝波段",
+    "format": "Band",
+    "aliasEn": "BlueBandName",
+    "default": [
+     "BLUE"
+    ],
+    "optional": "False",
+    "description": "The image Blue band Name in metadata."
+   },
+   {
+    "name": "nirBandName",
+    "type": "String",
+    "alias": "近红外波段",
+    "format": "Band",
+    "aliasEn": "nirBandName",
+    "default": "NIR",
+    "optional": "False",
+    "description": "指定多光谱栅格中的近红外波段名称，与短波红外波段配合计算归一化盐分指数。波段名称必须与输入栅格的实际标签精确匹配。"
+   }
+  ],
+  "all_args": [
+   {
+    "name": "coverage",
+    "type": "Coverage",
+    "alias": "栅格数据",
+    "format": "TIF",
+    "aliasEn": "coverage",
+    "optional": "False",
+    "description": "输入的多波段遥感影像栅格数据。通过红和近红外波段组合计算归一化悬浮泥沙指数，用于估算水体悬浮泥沙浓度"
+   },
+   {
+    "name": "blueBandName",
+    "type": "String",
+    "alias": "蓝波段",
+    "format": "Band",
+    "aliasEn": "BlueBandName",
+    "default": [
+     "BLUE"
+    ],
+    "optional": "False",
+    "description": "The image Blue band Name in metadata."
+   },
+   {
+    "name": "nirBandName",
+    "type": "String",
+    "alias": "近红外波段",
+    "format": "Band",
+    "aliasEn": "nirBandName",
+    "default": "NIR",
+    "optional": "False",
+    "description": "指定多光谱栅格中的近红外波段名称，与短波红外波段配合计算归一化盐分指数。波段名称必须与输入栅格的实际标签精确匹配。"
+   }
+  ]
+ },
+ {
+  "operator": "CoverageCollection.addStyles",
+  "alias": "为单栅格数据集合附加上图样式",
+  "description": "栅格集添加样式算子（addStyles）向CoverageCollection存储的各景栅格数据的内部元数据中附加或更新可视化渲染样式配置信息。可配置的样式内容包括：色带映射方案、NoData无值区域的透明度设置（可设为完全透明或指定颜色标识）、像元值的拉伸显示方式、分类显示的分段区间定义等。",
+  "catalogName": "结果样式与输出",
+  "output": {
+   "name": "output",
+   "type": "CoverageCollection",
+   "alias": "输出",
+   "aliasEn": "output",
+   "description": "输出为添加可视化样式后的栅格数据集。"
+  },
+  "band_params": [
+   {
+    "name": "bands",
+    "type": "List[String]",
+    "alias": "bands",
+    "aliasEn": "bands",
+    "optional": "true",
+    "description": "波段配置参数，用于指定可视化渲染时需要处理的栅格波段名称或索引。支持指定单个或多个波段组合。"
+   }
+  ],
+  "all_args": [
+   {
+    "name": "coverageCollection",
+    "type": "CoverageCollection",
+    "alias": "多景栅格数据",
+    "aliasEn": "coverageCollection",
+    "optional": "true",
+    "description": "输入的多景栅格数据集合。多景栅格添加样式。逐像元执行加法运算，输出两输入栅格对应位置像元值之和"
+   },
+   {
+    "name": "bands",
+    "type": "List[String]",
+    "alias": "bands",
+    "aliasEn": "bands",
+    "optional": "true",
+    "description": "波段配置参数，用于指定可视化渲染时需要处理的栅格波段名称或索引。支持指定单个或多个波段组合。"
+   },
+   {
+    "name": "gain",
+    "type": "Any",
+    "alias": "gain",
+    "aliasEn": "gain",
+    "default": "None",
+    "optional": "true",
+    "description": "增益系数。默认值为null。增益（gain）和偏移（bias）参数用于线性拉伸像元值显示范围：output = input * gain + bias。gain>1增强对比度，bias调节亮度偏移。常用于遥感影像的显示增强"
+   },
+   {
+    "name": "bias",
+    "type": "Any",
+    "alias": "bias",
+    "aliasEn": "bias",
+    "default": "None",
+    "optional": "true",
+    "description": "偏移值。默认值为null。增益（gain）和偏移（bias）参数用于线性拉伸像元值显示范围：output = input * gain + bias。gain>1增强对比度，bias调节亮度偏移。常用于遥感影像的显示增强"
+   },
+   {
+    "name": "min",
+    "type": "Any",
+    "alias": "min",
+    "aliasEn": "min",
+    "default": "None",
+    "optional": "true",
+    "description": "显示最小值。默认值为null。该参数为像元值显示范围的边界值。min指定显示的最小像元值（小于此值的像元显示为最暗色），max指定最大像元值（大于此值的像元显示为最亮色）。合理设置显示范围能有效增强影像的可视化效果"
+   },
+   {
+    "name": "max",
+    "type": "Any",
+    "alias": "max",
+    "aliasEn": "max",
+    "default": "None",
+    "optional": "true",
+    "description": "显示最大值。默认值为null。该参数为像元值显示范围的边界值。min指定显示的最小像元值（小于此值的像元显示为最暗色），max指定最大像元值（大于此值的像元显示为最亮色）。合理设置显示范围能有效增强影像的可视化效果"
+   },
+   {
+    "name": "gamma",
+    "type": "Any",
+    "alias": "gamma",
+    "aliasEn": "gamma",
+    "default": "None",
+    "optional": "true",
+    "description": "伽马校正系数。默认值为null。伽马校正参数用于非线性调整影像的亮度和对比度。gamma>1使暗部变暗亮部变亮（增强对比度），gamma<1使暗部提亮亮部压暗（降低对比度）。gamma=1表示线性映射不做伽马校正"
+   },
+   {
+    "name": "opacity",
+    "type": "Float",
+    "alias": "opacity",
+    "aliasEn": "opacity",
+    "default": 0,
+    "optional": "true",
+    "description": "图层不透明度，控制整个图层的透明程度。值域：0.0-1.0，0为完全透明，1为完全不透明。"
+   },
+   {
+    "name": "palette",
+    "type": "List[String]",
+    "alias": "palette",
+    "aliasEn": "palette",
+    "optional": "true",
+    "description": "配色调色板，用于指定栅格数据渲染时的颜色映射方案。可选用预设调色板名称或自定义颜色列表。"
+   },
+   {
+    "name": "format",
+    "type": "String",
+    "alias": "format",
+    "aliasEn": "format",
+    "default": "png",
+    "optional": "true",
+    "description": "输出格式。默认值为null。输出格式参数指定生成文件的编码格式或文件类型（如GeoTIFF、Shapefile、GeoJSON、CSV等）。不同的格式适用于不同的下游处理工具和数据共享场景"
+   }
+  ]
+ },
+ {
+  "operator": "Coverage.addStyles",
+  "alias": "为覆盖数据添加样式",
+  "description": "栅格样式添加算子（addStyles）用于为Coverage栅格数据集设置可视化渲染样式参数，控制栅格数据在GIS客户端中的符号化显示效果。\n参考链接：\nArcGIS Pro: https://pro.arcgis.com/en/pro-app/latest/help/mapping/layer-properties/raster-renderers.htm\nQGIS: https://docs.qgis.org/latest/en/docs/user_manual/working_with_raster/raster_properties.html",
+  "catalogName": "结果样式与输出",
+  "output": {
+   "name": "output",
+   "type": "Coverage",
+   "alias": "栅格数据",
+   "format": "TIF",
+   "aliasEn": "output",
+   "description": "输出为添加可视化样式后的栅格，仅附加渲染参数，像元值不变。"
+  },
+  "band_params": [
+   {
+    "name": "bands",
+    "type": "List[String]",
+    "alias": "bands",
+    "aliasEn": "bands",
+    "default": "None",
+    "optional": "true",
+    "description": "波段配置参数，用于指定可视化渲染时需要处理的栅格波段名称或索引。支持指定单个或多个波段组合。"
+   }
+  ],
+  "all_args": [
+   {
+    "name": "coverage",
+    "type": "Coverage",
+    "alias": "栅格数据",
+    "aliasEn": "coverage",
+    "optional": "true",
+    "description": "输入的栅格数据。单景栅格添加样式。逐像元执行加法运算，输出两输入栅格对应位置像元值之和"
+   },
+   {
+    "name": "bands",
+    "type": "List[String]",
+    "alias": "bands",
+    "aliasEn": "bands",
+    "default": "None",
+    "optional": "true",
+    "description": "波段配置参数，用于指定可视化渲染时需要处理的栅格波段名称或索引。支持指定单个或多个波段组合。"
+   },
+   {
+    "name": "gain",
+    "type": "Double",
+    "alias": "gain",
+    "aliasEn": "gain",
+    "optional": "true",
+    "description": "和偏移（bias）参数用于线性拉伸像元值显示范围：output = input * gain + bias。gain>1增强对比度，bias调节亮度偏移。常用于遥感影像的显示增强"
+   },
+   {
+    "name": "bias",
+    "type": "Double",
+    "alias": "bias",
+    "aliasEn": "bias",
+    "optional": "true",
+    "description": "参数用于线性拉伸像元值显示范围：output = input * gain + bias。gain>1增强对比度，bias调节亮度偏移。常用于遥感影像的显示增强"
+   },
+   {
+    "name": "min",
+    "type": "Double",
+    "alias": "min",
+    "aliasEn": "min",
+    "optional": "true",
+    "description": "该参数为像元值显示范围的边界值。min指定显示的最小像元值（小于此值的像元显示为最暗色），max指定最大像元值（大于此值的像元显示为最亮色）。合理设置显示范围能有效增强影像的可视化效果"
+   },
+   {
+    "name": "max",
+    "type": "Double",
+    "alias": "max",
+    "aliasEn": "max",
+    "optional": "true",
+    "description": "该参数为像元值显示范围的边界值。min指定显示的最小像元值（小于此值的像元显示为最暗色），max指定最大像元值（大于此值的像元显示为最亮色）。合理设置显示范围能有效增强影像的可视化效果"
+   },
+   {
+    "name": "gamma",
+    "type": "Any",
+    "alias": "gamma",
+    "aliasEn": "gamma",
+    "default": "None",
+    "optional": "true",
+    "description": "伽马校正参数用于非线性调整影像的亮度和对比度。gamma>1使暗部变暗亮部变亮（增强对比度），gamma<1使暗部提亮亮部压暗（降低对比度）。gamma=1表示线性映射不做伽马校正"
+   },
+   {
+    "name": "opacity",
+    "type": "Float",
+    "alias": "opacity",
+    "aliasEn": "opacity",
+    "default": 0,
+    "optional": "true",
+    "description": "图层不透明度，控制整个图层的透明程度。值域：0.0-1.0，0为完全透明，1为完全不透明。"
+   },
+   {
+    "name": "palette",
+    "type": "List[String]",
+    "alias": "palette",
+    "aliasEn": "palette",
+    "default": "None",
+    "optional": "true",
+    "description": "配色调色板，用于指定栅格数据渲染时的颜色映射方案。可选用预设调色板名称或自定义颜色列表。"
+   },
+   {
+    "name": "format",
+    "type": "String",
+    "alias": "format",
+    "aliasEn": "format",
+    "default": "png",
+    "optional": "true",
+    "description": "输出格式参数指定生成文件的编码格式或文件类型（如GeoTIFF、Shapefile、GeoJSON、CSV等）。不同的格式适用于不同的下游处理工具和数据共享场景"
+   }
+  ]
+ },
+ {
+  "operator": "Coverage.addBands",
+  "alias": "添加波段",
+  "description": "将coverage2中感兴趣的波段添加至coverage1中，如果波段重名，overwrite控制是否重写。",
+  "catalogName": "处理与转换",
+  "output": {
+   "name": "output",
+   "type": "Coverage",
+   "alias": "栅格数据",
+   "aliasEn": "output",
+   "description": "输出为波段叠加后的栅格，将源栅格的波段合并到目标栅格中。"
+  },
+  "band_params": [
+   {
+    "name": "names",
+    "type": "List[String]",
+    "alias": "要添加的波段名称列表",
+    "aliasEn": "names",
+    "description": "要添加的波段名称列表，用于指定添加波段操作中的目标波段名称。每个名称必须唯一且不与已有波段名冲突"
+   }
+  ],
+  "all_args": [
+   {
+    "name": "dstCoverage",
+    "type": "Coverage",
+    "alias": "目标栅格数据",
+    "aliasEn": "dstCoverage",
+    "optional": "False",
+    "description": "输入的目标栅格数据。作为波段添加的目标影像，源栅格的波段将被追加到该栅格的波段列表中"
+   },
+   {
+    "name": "srcCoverage",
+    "type": "Coverage",
+    "alias": "源栅格数据",
+    "aliasEn": "srcCoverage",
+    "optional": "False",
+    "description": "输入的源栅格数据。其波段将被提取并追加到目标栅格中，要求与目标栅格具有相同的空间参考、像元大小和范围"
+   },
+   {
+    "name": "names",
+    "type": "List[String]",
+    "alias": "要添加的波段名称列表",
+    "aliasEn": "names",
+    "description": "要添加的波段名称列表，用于指定添加波段操作中的目标波段名称。每个名称必须唯一且不与已有波段名冲突"
+   },
+   {
+    "name": "overwrite",
+    "type": "Boolean",
+    "alias": "是否覆盖同名波段",
+    "aliasEn": "overwrite",
+    "description": "控制是否允许覆盖已存在的输出数据。设为true时覆盖已有文件，false时若目标已存在则抛出异常。该参数是数据安全和版本管理的重要控制开关。"
+   },
+   {
+    "name": "clip_to_smallest",
+    "type": "Boolean",
+    "alias": "clip_to_smallest",
+    "default": "false",
+    "description": "为 true 时波段对齐到最小公共范围，为 false 时取并集范围并以 NoData 填充"
+   }
+  ]
+ },
+ {
+  "operator": "Coverage.NDVI",
+  "alias": "归一化植被指数",
+  "description": "根据输入的近红外波段和红光波段计算归一化植被指数 NDVI。",
+  "catalogName": "遥感指数计算",
+  "output": {
+   "name": "output",
+   "type": "Coverage",
+   "alias": "栅格数据",
+   "format": "TIF",
+   "aliasEn": "output",
+   "description": "输出为NDVI（归一化植被指数）栅格，每个像元值域[-1,1]，正值（>0.2）表示植被覆盖，负值表示水体、建筑或裸土。计算公式：(NIR-Red)/(NIR+Red)。"
+  },
+  "band_params": [
+   {
+    "name": "redBandName",
+    "type": "String",
+    "alias": "红波段",
+    "format": "Band",
+    "aliasEn": "redBandName",
+    "default": [
+     "RED",
+     "RED_EDGE_1",
+     "RED_EDGE_2"
+    ],
+    "optional": "False",
+    "description": "红波段名称，用于指定多光谱栅格中的红光波段。波段名称必须与输入栅格的实际标签精确匹配"
+   },
+   {
+    "name": "nirBandName",
+    "type": "String",
+    "alias": "近红外波段",
+    "format": "Band",
+    "aliasEn": "nirBandName",
+    "default": [
+     "NIR"
+    ],
+    "optional": "False",
+    "description": "指定多光谱栅格中的近红外波段名称，与红波段配合计算归一化植被指数。波段名称必须与输入栅格的实际标签精确匹配。"
+   }
+  ],
+  "all_args": [
+   {
+    "name": "coverage",
+    "type": "Coverage",
+    "alias": "栅格数据",
+    "format": "TIF",
+    "aliasEn": "coverage",
+    "optional": "False",
+    "description": "输入的多波段遥感影像栅格数据。通过近红外和红光波段的归一化比值计算植被覆盖度和生长状态指标"
+   },
+   {
+    "name": "redBandName",
+    "type": "String",
+    "alias": "红波段",
+    "format": "Band",
+    "aliasEn": "redBandName",
+    "default": [
+     "RED",
+     "RED_EDGE_1",
+     "RED_EDGE_2"
+    ],
+    "optional": "False",
+    "description": "红波段名称，用于指定多光谱栅格中的红光波段。波段名称必须与输入栅格的实际标签精确匹配"
+   },
+   {
+    "name": "nirBandName",
+    "type": "String",
+    "alias": "近红外波段",
+    "format": "Band",
+    "aliasEn": "nirBandName",
+    "default": [
+     "NIR"
+    ],
+    "optional": "False",
+    "description": "指定多光谱栅格中的近红外波段名称，与红波段配合计算归一化植被指数。波段名称必须与输入栅格的实际标签精确匹配。"
+   }
+  ]
+ },
+ {
+  "operator": "Coverage.NDWI",
+  "alias": "栅格-水体提取",
+  "description": "计算归一化水体指数",
+  "catalogName": "遥感指数计算",
+  "output": {
+   "name": "output",
+   "type": "Coverage",
+   "alias": "栅格数据",
+   "format": "TIF",
+   "aliasEn": "output",
+   "description": "输出为NDWI（归一化水体指数）栅格，每个像元值域[-1,1]，正值（>0）表示水体，负值表示非水体。计算公式：(Green-NIR)/(Green+NIR)。"
+  },
+  "band_params": [
+   {
+    "name": "greenBandName",
+    "type": "String",
+    "alias": "绿波段",
+    "format": "Band",
+    "aliasEn": "greenBandName",
+    "default": [
+     "GREEN"
+    ],
+    "optional": "False",
+    "description": "绿波段名称，用于指定多光谱栅格中的绿光波段。波段名称必须与输入栅格的实际标签精确匹配"
+   },
+   {
+    "name": "nirBandName",
+    "type": "String",
+    "alias": "近红外波段",
+    "format": "Band",
+    "aliasEn": "nirBandName",
+    "default": [
+     "NIR"
+    ],
+    "optional": "False",
+    "description": "指定多光谱栅格中的近红外波段名称，与绿波段配合计算归一化水体指数。波段名称必须与输入栅格的实际标签精确匹配。"
+   }
+  ],
+  "all_args": [
+   {
+    "name": "coverage",
+    "type": "Coverage",
+    "alias": "栅格数据",
+    "format": "TIF",
+    "aliasEn": "coverage",
+    "optional": "False",
+    "description": "输入的多波段遥感影像栅格数据。通过绿光和近红外波段比值计算归一化水体指数，用于识别地表水体分布"
+   },
+   {
+    "name": "greenBandName",
+    "type": "String",
+    "alias": "绿波段",
+    "format": "Band",
+    "aliasEn": "greenBandName",
+    "default": [
+     "GREEN"
+    ],
+    "optional": "False",
+    "description": "绿波段名称，用于指定多光谱栅格中的绿光波段。波段名称必须与输入栅格的实际标签精确匹配"
+   },
+   {
+    "name": "nirBandName",
+    "type": "String",
+    "alias": "近红外波段",
+    "format": "Band",
+    "aliasEn": "nirBandName",
+    "default": [
+     "NIR"
+    ],
+    "optional": "False",
+    "description": "指定多光谱栅格中的近红外波段名称，与绿波段配合计算归一化水体指数。波段名称必须与输入栅格的实际标签精确匹配。"
+   }
+  ]
+ },
+ {
+  "operator": "Coverage.normalizedDifference",
+  "alias": "\r\n归一化差异值",
+  "description": "计算两个波段的归一化差异值。",
+  "catalogName": "遥感指数计算",
+  "output": {
+   "name": "output",
+   "type": "Coverage",
+   "alias": "栅格数据",
+   "format": "TIF",
+   "aliasEn": "output",
+   "description": "输出为归一化差异指数栅格，每个像元值域[-1,1]，由指定两个波段的差值比计算：(band1-band2)/(band1+band2)。"
+  },
+  "band_params": [
+   {
+    "name": "bandNames",
+    "type": "List[String]",
+    "alias": "计算波段名称数组",
+    "aliasEn": "bandNames",
+    "default": "None",
+    "optional": "true",
+    "description": "参与计算的波段名称列表，用于从栅格数据集中选择特定光谱通道。波段名称必须与输入栅格的实际标签精确匹配"
+   }
+  ],
+  "all_args": [
+   {
+    "name": "coverage",
+    "type": "Coverage",
+    "alias": "栅格数据",
+    "format": "TIF",
+    "aliasEn": "coverage",
+    "optional": "true",
+    "description": "输入的多波段遥感影像栅格数据。栅格归一化差异值计算。通过波段代数运算计算归一化差异指数，利用不同地物在特定波段的反射差异性突出目标信号"
+   },
+   {
+    "name": "bandNames",
+    "type": "List[String]",
+    "alias": "计算波段名称数组",
+    "aliasEn": "bandNames",
+    "default": "None",
+    "optional": "true",
+    "description": "参与计算的波段名称列表，用于从栅格数据集中选择特定光谱通道。波段名称必须与输入栅格的实际标签精确匹配"
+   }
+  ]
+ },
+ {
+  "operator": "Coverage.rename",
+  "alias": "重命名",
+  "description": "为波段重新命名(list为新名称，长度与波段数一致)",
+  "catalogName": "处理与转换",
+  "output": {
+   "name": "output",
+   "type": "Coverage",
+   "alias": "波段重命名后的栅格数据集",
+   "aliasEn": "output",
+   "description": "输出为波段重命名后的栅格，波段名称变更，像元值不变。"
+  },
+  "band_params": [
+   {
+    "name": "name",
+    "type": "List[String]",
+    "alias": "新的波段名称列表",
+    "aliasEn": "name",
+    "optional": "true",
+    "description": "元数据属性名称，用于过滤或匹配要素集合中的元数据属性。名称必须与要素集合中的实际属性名精确匹配"
+   }
+  ],
+  "all_args": [
+   {
+    "name": "coverage",
+    "type": "Coverage",
+    "alias": "栅格数据",
+    "aliasEn": "coverage",
+    "optional": "true",
+    "description": "输入的栅格数据。对栅格各波段的名称进行重命名操作，为波段赋予更有辨识度的标签"
+   },
+   {
+    "name": "name",
+    "type": "List[String]",
+    "alias": "新的波段名称列表",
+    "aliasEn": "name",
+    "optional": "true",
+    "description": "元数据属性名称，用于过滤或匹配要素集合中的元数据属性。名称必须与要素集合中的实际属性名精确匹配"
+   }
+  ]
+ },
+ {
+  "operator": "Coverage.selectBands",
+  "alias": "波段选择",
+  "description": "从一个栅格影像中选择任意多个波段。",
+  "catalogName": "处理与转换",
+  "output": {
+   "name": "output",
+   "type": "Coverage",
+   "alias": "栅格数据",
+   "aliasEn": "output",
+   "description": "输出为波段选择后的栅格，仅保留指定波段。"
+  },
+  "band_params": [
+   {
+    "name": "bands",
+    "type": "List[String]",
+    "alias": "要获取的波段名称数组",
+    "aliasEn": "bands",
+    "description": "波段配置参数，用于指定可视化渲染时需要处理的栅格波段名称或索引。支持指定单个或多个波段组合。"
+   }
+  ],
+  "all_args": [
+   {
+    "name": "coverage",
+    "type": "Coverage",
+    "alias": "栅格数据",
+    "aliasEn": "coverage",
+    "description": "输入的栅格数据。从多波段栅格中按索引或名称提取指定波段子集，生成新的少波段栅格"
+   },
+   {
+    "name": "bands",
+    "type": "List[String]",
+    "alias": "要获取的波段名称数组",
+    "aliasEn": "bands",
+    "description": "波段配置参数，用于指定可视化渲染时需要处理的栅格波段名称或索引。支持指定单个或多个波段组合。"
+   }
+  ]
+ },
+ {
+  "operator": "Coverage.NDBI",
+  "alias": "归一化建筑物指数",
+  "description": "归一化建筑物指数",
+  "catalogName": "遥感指数计算",
+  "output": {
+   "name": "output",
+   "type": "Coverage",
+   "alias": "栅格数据",
+   "format": "TIF",
+   "aliasEn": "output",
+   "description": "输出为NDBI（归一化建筑指数）栅格，每个像元值域[-1,1]，正值表示建筑用地，负值表示非建筑用地。计算公式：(SWIR-NIR)/(SWIR+NIR)。"
+  },
+  "band_params": [
+   {
+    "name": "swirBandName",
+    "type": "String",
+    "alias": "短波红外波段",
+    "format": "Band",
+    "aliasEn": "swirBandName",
+    "default": [
+     "SWIR_1",
+     "SWIR_2"
+    ],
+    "optional": "False",
+    "description": "短波红外波段名称，用于指定多光谱栅格中的短波红外波段。波段名称必须与输入栅格的实际标签精确匹配"
+   },
+   {
+    "name": "nirBandName",
+    "type": "String",
+    "alias": "近红外波段",
+    "format": "Band",
+    "aliasEn": "nirBandName",
+    "default": [
+     "NIR"
+    ],
+    "optional": "False",
+    "description": "指定多光谱栅格中的近红外波段名称，与短波红外波段配合计算归一化建筑指数。波段名称必须与输入栅格的实际标签精确匹配。"
+   }
+  ],
+  "all_args": [
+   {
+    "name": "coverage",
+    "type": "Coverage",
+    "alias": "栅格数据",
+    "format": "TIF",
+    "aliasEn": "coverage",
+    "optional": "False",
+    "description": "输入的多波段遥感影像栅格数据。通过中红外和近红外波段比值计算归一化建筑指数，用于提取建成区和裸地信息"
+   },
+   {
+    "name": "swirBandName",
+    "type": "String",
+    "alias": "短波红外波段",
+    "format": "Band",
+    "aliasEn": "swirBandName",
+    "default": [
+     "SWIR_1",
+     "SWIR_2"
+    ],
+    "optional": "False",
+    "description": "短波红外波段名称，用于指定多光谱栅格中的短波红外波段。波段名称必须与输入栅格的实际标签精确匹配"
+   },
+   {
+    "name": "nirBandName",
+    "type": "String",
+    "alias": "近红外波段",
+    "format": "Band",
+    "aliasEn": "nirBandName",
+    "default": [
+     "NIR"
+    ],
+    "optional": "False",
+    "description": "指定多光谱栅格中的近红外波段名称，与短波红外波段配合计算归一化建筑指数。波段名称必须与输入栅格的实际标签精确匹配。"
+   }
+  ]
+ },
+ {
+  "operator": "Coverage.LST",
+  "alias": "归一化地表温度指数",
+  "description": null,
+  "catalogName": "遥感指数计算",
+  "output": {
+   "name": "output",
+   "type": "Coverage",
+   "alias": "栅格数据",
+   "format": "TIF",
+   "aliasEn": "output",
+   "description": "输出为地表温度（LST）栅格，每个像元值为地表温度，单位为摄氏度（℃），由热红外波段辐亮度经Planck公式反演得到。"
+  },
+  "band_params": [
+   {
+    "name": "tirBandName",
+    "type": "String",
+    "alias": "热红外波段",
+    "format": "Band",
+    "aliasEn": "tirBandName",
+    "default": "TIRS_1",
+    "optional": "False",
+    "description": "热红外波段名称，用于指定多光谱栅格中的热红外波段，用于地表温度反演计算。波段名称必须与输入栅格实际标签精确匹配"
+   }
+  ],
+  "all_args": [
+   {
+    "name": "coverage",
+    "type": "Coverage",
+    "alias": "栅格数据",
+    "format": "TIF",
+    "aliasEn": "coverage",
+    "optional": "False",
+    "description": "输入的多波段遥感影像栅格数据。基于热红外波段辐射传输方程反演地表温度，输出以开尔文或摄氏度为单位的温度值栅格"
+   },
+   {
+    "name": "tirBandName",
+    "type": "String",
+    "alias": "热红外波段",
+    "format": "Band",
+    "aliasEn": "tirBandName",
+    "default": "TIRS_1",
+    "optional": "False",
+    "description": "热红外波段名称，用于指定多光谱栅格中的热红外波段，用于地表温度反演计算。波段名称必须与输入栅格实际标签精确匹配"
+   }
+  ]
+ },
+ {
+  "operator": "Coverage.clipRasterByMaskLayerByGDAL",
+  "alias": "按掩膜图层裁剪栅格",
+  "description": "基于掩膜图层对输入栅格数据进行裁剪处理。",
+  "catalogName": "处理与转换",
+  "output": {
+   "name": "output",
+   "type": "Coverage",
+   "alias": "栅格数据",
+   "aliasEn": "output",
+   "description": "结果按矢量掩膜边界裁剪，只保留掩膜以内的像元，掩膜外部分被移除。可用于把影像精确裁剪到行政边界等矢量范围内。"
+  },
+  "band_params": [
+   {
+    "name": "alphaBand",
+    "type": "String",
+    "alias": "透明通道",
+    "aliasEn": "alphaBand",
+    "default": "False",
+    "optional": "true",
+    "description": "是否启用 alpha（透明）通道处理。取 True 时输出栅格附带 alpha 带，用于把指定区域（如掩膜外或背景）像元标记为透明；取 False 时不生成透明通道、保留常规数值。启用后输出波段数增加，便于在影像合成中实现透明叠加。默认 False。"
+   }
+  ],
+  "all_args": [
+   {
+    "name": "input",
+    "type": "Coverage",
+    "alias": "栅格数据(输入1)",
+    "aliasEn": "input",
+    "optional": "true",
+    "description": "待裁剪的源栅格。算法调用 GDAL 以掩膜矢量边界裁剪，仅保留掩膜范围内的像元，需与掩膜坐标参考一致。"
+   },
+   {
+    "name": "mask",
+    "type": "FeatureCollection",
+    "alias": "矢量数据(输入2)",
+    "aliasEn": "mask",
+    "optional": "true",
+    "description": "裁剪栅格所用的掩膜矢量要素（面）。其几何边界决定栅格被保留的区域，需与源栅格位于同一坐标参考，边界才会准确对应。"
+   },
+   {
+    "name": "cropToCutLine",
+    "type": "String",
+    "alias": "裁剪至裁剪线",
+    "aliasEn": "cropToCutLine",
+    "default": "True",
+    "optional": "true",
+    "description": "是否将输出范围裁剪到掩膜边界本身。取 True 时输出贴合掩膜边缘，边缘像元被裁至边界，范围更紧凑；取 False 时保持矩形外接范围。影响输出范围与像元布局。默认 True。"
+   },
+   {
+    "name": "targetExtent",
+    "type": "String",
+    "alias": "目标范围",
+    "aliasEn": "targetExtent",
+    "default": "",
+    "optional": "true",
+    "description": "指定输出栅格的空间范围（如 \"xmin,ymin,xmax,ymax\" 或窗口描述）。留空则自动确定范围；坐标须与目标坐标系统一。"
+   },
+   {
+    "name": "setResolution",
+    "type": "String",
+    "alias": "设定分辨率",
+    "aliasEn": "setResolution",
+    "default": "False",
+    "optional": "true",
+    "description": "是否用指定分辨率重采样输出像元大小。取 True 时按给定分辨率输出，取 False 时保持输入像元大小；仅在有指定分辨率时生效。默认 False。"
+   },
+   {
+    "name": "extra",
+    "type": "String",
+    "alias": "额外参数",
+    "aliasEn": "extra",
+    "default": "",
+    "optional": "true",
+    "description": "透传给底层工具的额外参数。以追加命令行选项或参数的方式控制细节（如分割、压缩等）；留空使用默认。传入无效选项可能被忽略或报错，建议仅在理解效果时使用。"
+   },
+   {
+    "name": "targetCrs",
+    "type": "String",
+    "alias": "目标坐标系",
+    "aliasEn": "targetCrs",
+    "default": "",
+    "optional": "true",
+    "description": "输出栅格的目标坐标参考系统（EPSG 编码或 WKT）。留空则沿用输入坐标系；取值须为有效坐标系。"
+   },
+   {
+    "name": "keepResolution",
+    "type": "String",
+    "alias": "保持分辨率",
+    "aliasEn": "keepResolution",
+    "default": "False",
+    "optional": "true",
+    "description": "目标坐标系与输入不同时是否保持输入像元大小（不重采样）。取 True 时维持原分辨率、仅变换位置；留空或 False 时按目标坐标系重新计算分辨率。默认 False。"
+   },
+   {
+    "name": "alphaBand",
+    "type": "String",
+    "alias": "透明通道",
+    "aliasEn": "alphaBand",
+    "default": "False",
+    "optional": "true",
+    "description": "是否启用 alpha（透明）通道处理。取 True 时输出栅格附带 alpha 带，用于把指定区域（如掩膜外或背景）像元标记为透明；取 False 时不生成透明通道、保留常规数值。启用后输出波段数增加，便于在影像合成中实现透明叠加。默认 False。"
+   },
+   {
+    "name": "options",
+    "type": "String",
+    "alias": "选项",
+    "aliasEn": "options",
+    "default": "",
+    "optional": "true",
+    "description": "透传给底层工具的附加选项。以追加命令行选项的方式控制细节（如压缩、分割、坐标等）；留空使用默认。无效选项可能被忽略或报错，建议理解效果后再使用。"
+   },
+   {
+    "name": "multithreading",
+    "type": "String",
+    "alias": "多线程",
+    "aliasEn": "multithreading",
+    "default": "False",
+    "optional": "true",
+    "description": "是否开启多线程处理以加速。取 True 时并行计算，需底层支持；取 False 时单线程执行。可能增加内存与资源占用，顺序可能不完全确定。默认 False。"
+   },
+   {
+    "name": "dataType",
+    "type": "String",
+    "alias": "数据类型",
+    "aliasEn": "dataType",
+    "default": "0",
+    "optional": "true",
+    "description": "输出像元的数据类型编码。用于控制输出栅格的存储类型（如 Byte、Int16、UInt16、Int32、Float32、Float64 等）；留空或 \"0\" 表示沿用输入类型。类型决定取值范围与精度，过窄会截断/取整。"
+   },
+   {
+    "name": "sourceCrs",
+    "type": "String",
+    "alias": "源坐标系",
+    "aliasEn": "sourceCrs",
+    "default": "",
+    "optional": "true",
+    "description": "输入数据的实际坐标参考系统。当输入缺省或需强制指定时提供；留空则使用输入自带元数据。取值须为有效坐标系。"
+   }
+  ]
+ }
+]

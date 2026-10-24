@@ -1,0 +1,71 @@
+{
+ "splits": {
+  "train": {
+   "n": 15815,
+   "by_task": {
+    "T1": 58,
+    "T2": 15669,
+    "T3": 72,
+    "T4": 11,
+    "T5": 5
+   },
+   "n_products": 21,
+   "n_variant": 15510,
+   "unique_candidate_sets": 11
+  },
+  "val": {
+   "n": 3837,
+   "by_task": {
+    "T1": 12,
+    "T2": 3805,
+    "T3": 15,
+    "T4": 3,
+    "T5": 2
+   },
+   "n_products": 3,
+   "n_variant": 3766,
+   "unique_candidate_sets": 3
+  }
+ },
+ "split_products": {
+  "train": [
+   "CN_FCH30_2020",
+   "GF1_ARD_WFV1_EO",
+   "GF1_ARD_WFV2_EO",
+   "GF1_ARD_WFV3_EO",
+   "GF1_ARD_WFV4_EO",
+   "GF6_ARD_WFV_EO",
+   "HiGLASS_SR_Landsat_30m",
+   "LC08_L1TP_Hubei1420_sr",
+   "LJ4I_HSI_32B",
+   "MOD09A1",
+   "MOD09Q1",
+   "MOD13A1",
+   "MOD13Q1",
+   "MODIS09A1",
+   "MODIS13A1",
+   "MODIS13Q1",
+   "MYD09A1",
+   "MYD09Q1",
+   "MYD13A1",
+   "S2A_MSIL1C",
+   "S2B_MSIL1C"
+  ],
+  "val": [
+   "LJ4I_HSI_17B",
+   "LT05_L1TP_C02_T1",
+   "S2_MSIL1C"
+  ]
+ },
+ "test_products": [
+  "LC08_C02_L1",
+  "LC08_C02_L2",
+  "LC08_L1T",
+  "LC09_C02_L1",
+  "LC09_C02_L2",
+  "LC_Ref",
+  "LJ3II_L1B_Fusion",
+  "LJ4I_HSI_5B",
+  "S2_MSIL2A"
+ ]
+}

@@ -1,0 +1,4688 @@
+[
+ {
+  "category": "光学遥感",
+  "catalogs": [
+   "MODIS系列产品",
+   "Landsat系列产品",
+   "Sentinel系列产品",
+   "珞珈系列产品",
+   "高分系列产品",
+   "GISA系列产品",
+   "HiGLASS系列产品"
+  ],
+  "count": 41,
+  "products": [
+   {
+    "id": 208,
+    "name": "MOD09Q1",
+    "alias": "MODIS L1级表面反射率产品（250米）",
+    "type": 0,
+    "catalogName": "MODIS系列产品",
+    "resolution": "250米",
+    "crs": "Sinusoidal",
+    "imageCount": "504",
+    "dataSize": "409.0 GB",
+    "area": "全球",
+    "mission": "MODIS",
+    "sensor": "专题数据",
+    "productLevel": "L1",
+    "description": "MOD09Q1 产品基于 Terra 卫星 MODIS 传感器数据，经过 Collection 6 处理，生成 8 天合成的 250 米分辨率表面反射率产品，覆盖红光和近红外波段。产品经过大气校正和云检测，适用于植被指数计算及中高分辨率地表监测。\n\n",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(coverageID=\"MOD09Q1.A2023161.h26v05.061.2023170174733\", productID=\"MOD09Q1\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage, [\"sur_refl_b01\"])\r\nvis_params = {\"min\": -100, \"max\": 100}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(105, 35, 10)\r\n",
+    "band_count": 4,
+    "bands": [
+     {
+      "bandNum": "sur_refl_b01",
+      "bandName": "Red",
+      "bandRank": 1,
+      "spectrumMin": 620.0,
+      "spectrumMax": 670.0,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "sur_refl_b02",
+      "bandName": "NIR",
+      "bandRank": 1,
+      "spectrumMin": 841.0,
+      "spectrumMax": 876.0,
+      "description": null,
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "sur_refl_qc_250m",
+      "bandName": "sur_refl_qc_250m",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_state_250m",
+      "bandName": "sur_refl_state_250m",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 209,
+    "name": "MYD09Q1",
+    "alias": "MODIS L1级表面反射率产品（250米）",
+    "type": 0,
+    "catalogName": "MODIS系列产品",
+    "resolution": "250米",
+    "crs": "Sinusoidal",
+    "imageCount": "504",
+    "dataSize": "409.7 GB",
+    "area": "全球",
+    "mission": "MODIS",
+    "sensor": "专题数据",
+    "productLevel": "L1",
+    "description": "MYD09Q1 产品为 Aqua 卫星 MODIS 传感器采集数据，经过 Collection 6 处理，生成 8 天合成的 250 米分辨率红光与近红外表面反射率产品，适合植被指数计算与地表动态分析。\n\n",
+    "sampleCode": "\r\nimport oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(coverageID=\"MYD09Q1.A2023153.h27v06.061.2023164032022\", productID=\"MYD09Q1\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage, [\"sur_refl_b01\"])\r\nvis_params = {\"min\": -100, \"max\": 100}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(105, 25, 10)\r\n",
+    "band_count": 4,
+    "bands": [
+     {
+      "bandNum": "sur_refl_b01",
+      "bandName": "sur_refl_b01",
+      "bandRank": 1,
+      "spectrumMin": 620.0,
+      "spectrumMax": 670.0,
+      "description": "红光波段",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "sur_refl_b02",
+      "bandName": "sur_refl_b02",
+      "bandRank": 1,
+      "spectrumMin": 841.0,
+      "spectrumMax": 876.0,
+      "description": "近红外波段\t",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "sur_refl_qc_250m",
+      "bandName": "sur_refl_qc_250m",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_state_250m",
+      "bandName": "sur_refl_state_250m",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 513,
+    "name": "MODIS09Q1",
+    "alias": "MODIS 8天合成250米分辨率地表反射率产品",
+    "type": 0,
+    "catalogName": "MODIS系列产品",
+    "resolution": "250米",
+    "crs": "Sinusoidal",
+    "imageCount": "142223",
+    "dataSize": "94338.38 GB",
+    "area": "全球",
+    "mission": "MODIS",
+    "sensor": "专题数据",
+    "productLevel": "L1",
+    "description": " 产品基于  MODIS 传感器数据，经过 Collection 6 处理，生成 8 天合成的 250 米分辨率表面反射率产品，覆盖红光和近红外波段。产品经过大气校正和云检测，适用于植被指数计算及中高分辨率地表监测。\n",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(coverageID=\"MOD09Q1.A2023161.h26v05.061.2023170174733\", productID=\"MOD09Q1\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage, [\"sur_refl_b01\"])\r\nvis_params = {\"min\": -100, \"max\": 100}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(105, 35, 10)\r\n",
+    "band_count": 4,
+    "bands": [
+     {
+      "bandNum": "sur_refl_b01",
+      "bandName": "sur_refl_b01",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_b02",
+      "bandName": "sur_refl_b02",
+      "bandRank": 2,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_qc_250m",
+      "bandName": "sur_refl_qc_250m",
+      "bandRank": 3,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_state_250m",
+      "bandName": "sur_refl_state_250m",
+      "bandRank": 4,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 203,
+    "name": "MOD09A1",
+    "alias": "MODIS L1级表面反射率产品",
+    "type": 0,
+    "catalogName": "MODIS系列产品",
+    "resolution": "500米",
+    "crs": "Sinusoidal",
+    "imageCount": "504",
+    "dataSize": "339.4 GB",
+    "area": "全球",
+    "mission": "MODIS",
+    "sensor": "专题数据",
+    "productLevel": "L1",
+    "description": "MOD09A1 产品基于 Terra 卫星 MODIS 传感器获取的地表观测数据，经过 Collection 6 框架的 L1 级处理，生成 8 天合成的七波段表面反射率产品。产品采用大气校正与云检测处理，反映地表真实反射特性，适用于土地覆盖分类、植被指数计算及生态环境监测等遥感应用。\n\n",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(coverageID=\"MOD09A1.A2023129.h26v05.061.2023138052151\", productID=\"MOD09A1\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage, [\"sur_refl_b01\"])\r\nvis_params = {\"min\": -100, \"max\": 100}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(100, 35, 10)\r\n",
+    "band_count": 13,
+    "bands": [
+     {
+      "bandNum": "sur_refl_b01",
+      "bandName": "Red",
+      "bandRank": 1,
+      "spectrumMin": 620.0,
+      "spectrumMax": 670.0,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "sur_refl_b02",
+      "bandName": "NIR",
+      "bandRank": 2,
+      "spectrumMin": 841.0,
+      "spectrumMax": 876.0,
+      "description": null,
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "sur_refl_b03",
+      "bandName": "Blue",
+      "bandRank": 3,
+      "spectrumMin": 459.0,
+      "spectrumMax": 479.0,
+      "description": null,
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "sur_refl_b04",
+      "bandName": "Green",
+      "bandRank": 4,
+      "spectrumMin": 545.0,
+      "spectrumMax": 565.0,
+      "description": null,
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "sur_refl_b05",
+      "bandName": "NIR",
+      "bandRank": 5,
+      "spectrumMin": 1230.0,
+      "spectrumMax": 1250.0,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_b06",
+      "bandName": "SWIR 1",
+      "bandRank": 6,
+      "spectrumMin": 1628.0,
+      "spectrumMax": 1652.0,
+      "description": null,
+      "inferred_role": "短波红外1"
+     },
+     {
+      "bandNum": "sur_refl_b07",
+      "bandName": "SWIR 2",
+      "bandRank": 7,
+      "spectrumMin": 2105.0,
+      "spectrumMax": 2155.0,
+      "description": null,
+      "inferred_role": "短波红外2"
+     },
+     {
+      "bandNum": "sur_refl_day_of_year",
+      "bandName": "QC_500m",
+      "bandRank": 8,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_qc_500m",
+      "bandName": "StateQA",
+      "bandRank": 9,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_raz",
+      "bandName": "SensorZenith",
+      "bandRank": 10,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_state_500m",
+      "bandName": "SensorAzimuth",
+      "bandRank": 11,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_szen",
+      "bandName": "SolarZenith",
+      "bandRank": 12,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_vzen",
+      "bandName": "SolarAzimuth",
+      "bandRank": 13,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 512,
+    "name": "MODIS09A1",
+    "alias": "MODIS 8天合成500米分辨率地表反射率产品",
+    "type": 0,
+    "catalogName": "MODIS系列产品",
+    "resolution": "500米",
+    "crs": "Sinusoidal",
+    "imageCount": "143320",
+    "dataSize": "99496.08 GB",
+    "area": "全球",
+    "mission": "MODIS",
+    "sensor": "专题数据",
+    "productLevel": "L1",
+    "description": "产品基于 MODIS 传感器采集的多光谱数据，经过 Collection 6 处理，生成 8 天合成的七波段表面反射率产品，适合于土地覆盖分类、植被监测等应用。",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(coverageID=\"MYD09A1.A2023137.h27v06.061.2023146171917\", productID=\"MYD09A1\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage, [\"sur_refl_b01\"])\r\nvis_params = {\"min\": -100, \"max\": 100}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(105, 25, 10)",
+    "band_count": 13,
+    "bands": [
+     {
+      "bandNum": "sur_refl_b01",
+      "bandName": "Red",
+      "bandRank": 1,
+      "spectrumMin": 620.0,
+      "spectrumMax": 670.0,
+      "description": "",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "sur_refl_b02",
+      "bandName": "NIR",
+      "bandRank": 2,
+      "spectrumMin": 841.0,
+      "spectrumMax": 876.0,
+      "description": "",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "sur_refl_b03",
+      "bandName": "Blue",
+      "bandRank": 3,
+      "spectrumMin": 459.0,
+      "spectrumMax": 479.0,
+      "description": "",
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "sur_refl_b04",
+      "bandName": "Green",
+      "bandRank": 4,
+      "spectrumMin": 545.0,
+      "spectrumMax": 565.0,
+      "description": "",
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "sur_refl_b05",
+      "bandName": "NIR",
+      "bandRank": 5,
+      "spectrumMin": 1230.0,
+      "spectrumMax": 1250.0,
+      "description": "",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_b06",
+      "bandName": "SWIR 1",
+      "bandRank": 6,
+      "spectrumMin": 1628.0,
+      "spectrumMax": 1652.0,
+      "description": "",
+      "inferred_role": "短波红外1"
+     },
+     {
+      "bandNum": "sur_refl_b07",
+      "bandName": "SWIR 2",
+      "bandRank": 7,
+      "spectrumMin": 2105.0,
+      "spectrumMax": 2155.0,
+      "description": "",
+      "inferred_role": "短波红外2"
+     },
+     {
+      "bandNum": "sur_refl_day_of_year",
+      "bandName": "QC_500m",
+      "bandRank": 8,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": "",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_qc_500m",
+      "bandName": "StateQA",
+      "bandRank": 9,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": "",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_raz",
+      "bandName": "SensorZenith",
+      "bandRank": 10,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": "",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_state_500m",
+      "bandName": "SensorAzimuth",
+      "bandRank": 11,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": "",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_szen",
+      "bandName": "SolarZenith",
+      "bandRank": 12,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": "",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_vzen",
+      "bandName": "SolarAzimuth",
+      "bandRank": 13,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": "",
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 514,
+    "name": "MODIS13A1",
+    "alias": "MODIS 16天合成500米分辨率植被指数产品",
+    "type": 0,
+    "catalogName": "MODIS系列产品",
+    "resolution": "500米",
+    "crs": "Sinusoidal",
+    "imageCount": "66855",
+    "dataSize": "38825.37 GB",
+    "area": "全球",
+    "mission": "MODIS",
+    "sensor": "专题数据",
+    "productLevel": "L1",
+    "description": "MODIS13A1产品是由搭载的中分辨率成像光谱仪（MODIS）采集的地表观测数据，基于 Collection 6 框架进行 L1 级标准化处理，生成以16天周期合成的 NDVI 和 EVI 植被指数产品。该产品采用 BRDF 校正、云检测与去噪技术，保证高时空一致性，适用于区域至全球尺度的植被覆盖监测、农业动态评估与生态变化分析等多种遥感应用。\n",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(coverageID=\"MOD13A1.A2023113.h29v07.061.2023129235818\", productID=\"MOD13A1\")\r\nc = service.getProcess(\"Coverage.selectBands\").execute(coverage, [\"NDVI\"])\r\nvis_params = {\"min\": 200, \"max\": 1000,\"palette\": [\"gold\", \"yellow\", \"brown\", \"lightblue\", \"blue\"]}\r\nc.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(120.50, 15.24, 10)",
+    "band_count": 12,
+    "bands": [
+     {
+      "bandNum": "NDVI",
+      "bandName": "NDVI",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "EVI",
+      "bandName": "EVI",
+      "bandRank": 2,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "Blue",
+      "bandName": "Blue",
+      "bandRank": 3,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "Red",
+      "bandName": "Red",
+      "bandRank": 4,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "NIR",
+      "bandName": "NIR",
+      "bandRank": 5,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "MIR",
+      "bandName": "MIR",
+      "bandRank": 6,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "短波红外1"
+     },
+     {
+      "bandNum": "VI_Quality",
+      "bandName": "VI_Quality",
+      "bandRank": 7,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "view_zenith",
+      "bandName": "view_zenith",
+      "bandRank": 8,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sun_zenith",
+      "bandName": "sun_zenith",
+      "bandRank": 9,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "relative_azimuth",
+      "bandName": "relative_azimuth",
+      "bandRank": 10,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "composite_day_of_the_year",
+      "bandName": "composite_day_of_the_year",
+      "bandRank": 11,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "pixel_reliability",
+      "bandName": "pixel_reliability",
+      "bandRank": 12,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 515,
+    "name": "MODIS13Q1",
+    "alias": "MODIS 16天合成250米分辨率植被指数产品",
+    "type": 0,
+    "catalogName": "MODIS系列产品",
+    "resolution": "250米",
+    "crs": "Sinusoidal",
+    "imageCount": "66847",
+    "dataSize": "148253.54 GB",
+    "area": "全球",
+    "mission": "MODIS",
+    "sensor": "专题数据",
+    "productLevel": "L1",
+    "description": "MODIS13Q1 产品是基于 MODIS 传感器数据，经过 Collection 6 L1 级处理的 16 天合成植被指数产品，包含 NDVI 和 EVI，分辨率为 250 米。产品适合于区域植被动态监测和生态环境分析。",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(coverageID=\"MOD13Q1.A2022001.h27v05.061.2022018175822\", productID=\"MOD13Q1\")\r\nc = service.getProcess(\"Coverage.selectBands\").execute(coverage, [\"NDVI\"])\r\nvis_params = {\"min\": 200, \"max\": 1000,\"palette\": [\"gold\", \"yellow\", \"brown\", \"lightblue\", \"blue\"]}\r\nc.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(113.50, 35.24, 4)",
+    "band_count": 12,
+    "bands": [
+     {
+      "bandNum": "NDVI",
+      "bandName": "NDVI",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "EVI",
+      "bandName": "EVI",
+      "bandRank": 2,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "Blue",
+      "bandName": "Blue",
+      "bandRank": 3,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "Red",
+      "bandName": "Red",
+      "bandRank": 4,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "NIR",
+      "bandName": "NIR",
+      "bandRank": 5,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "MIR",
+      "bandName": "MIR",
+      "bandRank": 6,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "短波红外1"
+     },
+     {
+      "bandNum": "VI_Quality",
+      "bandName": "VI_Quality",
+      "bandRank": 7,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "view_zenith",
+      "bandName": "view_zenith",
+      "bandRank": 8,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sun_zenith",
+      "bandName": "sun_zenith",
+      "bandRank": 9,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "relative_azimuth",
+      "bandName": "relative_azimuth",
+      "bandRank": 10,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "composite_day_of_the_year",
+      "bandName": "composite_day_of_the_year",
+      "bandRank": 11,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "pixel_reliability",
+      "bandName": "pixel_reliability",
+      "bandRank": 12,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 180,
+    "name": "MOD13Q1",
+    "alias": "MODIS L1级植被指数产品（250米）",
+    "type": 0,
+    "catalogName": "MODIS系列产品",
+    "resolution": "250米",
+    "crs": "Sinusoidal",
+    "imageCount": "101",
+    "dataSize": "268.0 GB",
+    "area": "全球",
+    "mission": "MODIS",
+    "sensor": "专题数据",
+    "productLevel": "L1",
+    "description": "MOD13Q1 产品是基于 Terra 卫星 MODIS 传感器数据，经过 Collection 6 L1 级处理的 16 天合成植被指数产品，包含 NDVI 和 EVI，分辨率为 250 米。产品适合于区域植被动态监测和生态环境分析。\n\n",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(coverageID=\"MOD13Q1.A2022001.h27v05.061.2022018175822\", productID=\"MOD13Q1\")\r\nc = service.getProcess(\"Coverage.selectBands\").execute(coverage, [\"NDVI\"])\r\nvis_params = {\"min\": 200, \"max\": 1000,\"palette\": [\"gold\", \"yellow\", \"brown\", \"lightblue\", \"blue\"]}\r\nc.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(113.50, 35.24, 4)\r\n",
+    "band_count": 12,
+    "bands": [
+     {
+      "bandNum": "NDVI",
+      "bandName": "NDVI",
+      "bandRank": 1,
+      "spectrumMin": 620.0,
+      "spectrumMax": 670.0,
+      "description": "归一化植被指数",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "EVI",
+      "bandName": "EVI",
+      "bandRank": 2,
+      "spectrumMin": 841.0,
+      "spectrumMax": 876.0,
+      "description": "增强型植被指数",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "blue-reflectance",
+      "bandName": "blue-reflectance",
+      "bandRank": 3,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "red-reflectance",
+      "bandName": "red-reflectance",
+      "bandRank": 4,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "NIR-reflectance",
+      "bandName": "NIR-reflectance",
+      "bandRank": 5,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "MIR-reflectance",
+      "bandName": "MIR-reflectance",
+      "bandRank": 6,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "短波红外1"
+     },
+     {
+      "bandNum": "composite-day-of-the-year",
+      "bandName": "composite-day-of-the-year",
+      "bandRank": 7,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sun-zenith-angle",
+      "bandName": "sun-zenith-angle",
+      "bandRank": 8,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "view-zenith-angle",
+      "bandName": "view-zenith-angle",
+      "bandRank": 9,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "relative-azimuth-angle",
+      "bandName": "relative-azimuth-angle",
+      "bandRank": 10,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "pixel-reliability",
+      "bandName": "pixel-reliability",
+      "bandRank": 11,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "VI-Quality",
+      "bandName": "VI-Quality",
+      "bandRank": 12,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 340,
+    "name": "MOD13A1",
+    "alias": "MODIS L1级植被指数产品",
+    "type": 0,
+    "catalogName": "MODIS系列产品",
+    "resolution": "500米",
+    "crs": "Sinusoidal",
+    "imageCount": "377",
+    "dataSize": "458.4 GB",
+    "area": "全球",
+    "mission": "MODIS",
+    "sensor": "专题数据",
+    "productLevel": "L1",
+    "description": "MOD13A1 产品是由 Terra 卫星搭载的中分辨率成像光谱仪（MODIS）采集的地表观测数据，基于 Collection 6 框架进行 L1 级标准化处理，生成以16天周期合成的 NDVI 和 EVI 植被指数产品。该产品采用 BRDF 校正、云检测与去噪技术，保证高时空一致性，适用于区域至全球尺度的植被覆盖监测、农业动态评估与生态变化分析等多种遥感应用。\n\n",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(coverageID=\"MOD13A1.A2023113.h29v07.061.2023129235818\", productID=\"MOD13A1\")\r\nc = service.getProcess(\"Coverage.selectBands\").execute(coverage, [\"NDVI\"])\r\nvis_params = {\"min\": 200, \"max\": 1000,\"palette\": [\"gold\", \"yellow\", \"brown\", \"lightblue\", \"blue\"]}\r\nc.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(120.50, 15.24, 10)",
+    "band_count": 12,
+    "bands": [
+     {
+      "bandNum": "NDVI",
+      "bandName": "NDVI",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": "归一化植被指数",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "EVI",
+      "bandName": "EVI",
+      "bandRank": 2,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": "增强型植被指数",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "VIQuality",
+      "bandName": "VIQuality",
+      "bandRank": 3,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": "植被指数质量标志",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "Red",
+      "bandName": "Red",
+      "bandRank": 4,
+      "spectrumMin": 620.0,
+      "spectrumMax": 670.0,
+      "description": "Red 反射率",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "NIR",
+      "bandName": "NIR",
+      "bandRank": 5,
+      "spectrumMin": 841.0,
+      "spectrumMax": 876.0,
+      "description": "NIR 反射率",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "Blue",
+      "bandName": "Blue",
+      "bandRank": 6,
+      "spectrumMin": 459.0,
+      "spectrumMax": 479.0,
+      "description": null,
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "MIR",
+      "bandName": "MIR",
+      "bandRank": 7,
+      "spectrumMin": 2105.0,
+      "spectrumMax": 2155.0,
+      "description": null,
+      "inferred_role": "短波红外2"
+     },
+     {
+      "bandNum": "ViewZenith",
+      "bandName": "ViewZenith",
+      "bandRank": 8,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": "观测天顶角",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "SunZenith",
+      "bandName": "SunZenith",
+      "bandRank": 9,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": "太阳天顶角",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "RelativeAzimuth",
+      "bandName": "RelativeAzimuth",
+      "bandRank": 10,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": "相对方位角",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "DayOfYear",
+      "bandName": "DayOfYear",
+      "bandRank": 11,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "pixelReliability",
+      "bandName": "pixelReliability",
+      "bandRank": 12,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": "像元可靠性",
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 207,
+    "name": "MYD09A1",
+    "alias": "MODIS L1级表面反射率产品",
+    "type": 0,
+    "catalogName": "MODIS系列产品",
+    "resolution": "500米",
+    "crs": "Sinusoidal",
+    "imageCount": "504",
+    "dataSize": "336.4 GB",
+    "area": "全球",
+    "mission": "MODIS",
+    "sensor": "专题数据",
+    "productLevel": "L1",
+    "description": "MYD09A1 产品基于 Aqua 卫星 MODIS 传感器采集的多光谱数据，经过 Collection 6 处理，生成 8 天合成的七波段表面反射率产品，适合于土地覆盖分类、植被监测等应用。\n\n",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(coverageID=\"MYD09A1.A2023137.h27v06.061.2023146171917\", productID=\"MYD09A1\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage, [\"sur_refl_b01\"])\r\nvis_params = {\"min\": -100, \"max\": 100}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(105, 25, 10)\r\n",
+    "band_count": 13,
+    "bands": [
+     {
+      "bandNum": "sur_refl_b01",
+      "bandName": "Red",
+      "bandRank": 1,
+      "spectrumMin": 620.0,
+      "spectrumMax": 670.0,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "sur_refl_b02",
+      "bandName": "NIR",
+      "bandRank": 2,
+      "spectrumMin": 841.0,
+      "spectrumMax": 876.0,
+      "description": null,
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "sur_refl_b03",
+      "bandName": "Blue",
+      "bandRank": 3,
+      "spectrumMin": 459.0,
+      "spectrumMax": 479.0,
+      "description": null,
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "sur_refl_b04",
+      "bandName": "Green",
+      "bandRank": 4,
+      "spectrumMin": 545.0,
+      "spectrumMax": 565.0,
+      "description": null,
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "sur_refl_b05",
+      "bandName": "NIR",
+      "bandRank": 5,
+      "spectrumMin": 1230.0,
+      "spectrumMax": 1250.0,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_b06",
+      "bandName": "SWIR 1",
+      "bandRank": 6,
+      "spectrumMin": 1628.0,
+      "spectrumMax": 1652.0,
+      "description": null,
+      "inferred_role": "短波红外1"
+     },
+     {
+      "bandNum": "sur_refl_b07",
+      "bandName": "SWIR 2",
+      "bandRank": 7,
+      "spectrumMin": 2105.0,
+      "spectrumMax": 2155.0,
+      "description": null,
+      "inferred_role": "短波红外2"
+     },
+     {
+      "bandNum": "sur_refl_day_of_year",
+      "bandName": "sur_refl_day_of_year",
+      "bandRank": 8,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_qc_500m",
+      "bandName": "sur_refl_qc_500m",
+      "bandRank": 9,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_raz",
+      "bandName": "sur_refl_raz",
+      "bandRank": 10,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_state_500m",
+      "bandName": "sur_refl_state_500m",
+      "bandRank": 11,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_szen",
+      "bandName": "sur_refl_szen",
+      "bandRank": 12,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sur_refl_vzen",
+      "bandName": "sur_refl_vzen",
+      "bandRank": 13,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 341,
+    "name": "MYD13A1",
+    "alias": "MODIS L1级植被指数产品",
+    "type": 0,
+    "catalogName": "MODIS系列产品",
+    "resolution": "500米",
+    "crs": "Sinusoidal",
+    "imageCount": "336",
+    "dataSize": "413.4 GB",
+    "area": "全球",
+    "mission": "MODIS",
+    "sensor": "专题数据",
+    "productLevel": "L1",
+    "description": "MYD13A1 产品由 Aqua 卫星搭载 MODIS 传感器采集，经过 Collection 6 L1 级处理，生成 16 天合成的 NDVI 和 EVI 植被指数产品，具有良好的时空连续性，适用于全球及区域植被变化监测。\n\n",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(coverageID=\"MYD13A1.A2023121.h29v07.061.2023143221758\", productID=\"MYD13A1\")\r\nc = service.getProcess(\"Coverage.selectBands\").execute(coverage, [\"NDVI\"])\r\nvis_params = {\"min\": 200, \"max\": 1000,\"palette\": [\"gold\", \"yellow\", \"brown\", \"lightblue\", \"blue\"]}\r\nc.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(116.50, 15.24, 6)",
+    "band_count": 12,
+    "bands": [
+     {
+      "bandNum": "NDVI",
+      "bandName": "NDVI",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": "归一化植被指数",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "EVI",
+      "bandName": "EVI",
+      "bandRank": 2,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": "增强型植被指数",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "VIQuality",
+      "bandName": "VIQuality",
+      "bandRank": 3,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": "植被指数质量标志",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "Red",
+      "bandName": "Red",
+      "bandRank": 4,
+      "spectrumMin": 620.0,
+      "spectrumMax": 670.0,
+      "description": "Red 反射率",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "NIR",
+      "bandName": "NIR",
+      "bandRank": 5,
+      "spectrumMin": 841.0,
+      "spectrumMax": 876.0,
+      "description": "NIR 反射率",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "Blue",
+      "bandName": "Blue",
+      "bandRank": 6,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "MIR",
+      "bandName": "MIR",
+      "bandRank": 7,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "短波红外1"
+     },
+     {
+      "bandNum": "ViewZenith",
+      "bandName": "ViewZenith",
+      "bandRank": 8,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": "",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "SunZenith",
+      "bandName": "SunZenith",
+      "bandRank": 9,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": "太阳天顶角",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "RelativeAzimuth",
+      "bandName": "RelativeAzimuth",
+      "bandRank": 10,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": "相对方位角",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "DayOfYear",
+      "bandName": "DayOfYear",
+      "bandRank": 11,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "pixelReliability",
+      "bandName": "pixelReliability",
+      "bandRank": 12,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": "像元可靠性",
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 454,
+    "name": "LC09_C02_L1",
+    "alias": "Landsat-9 Collection 02 Raw",
+    "type": 0,
+    "catalogName": "Landsat系列产品",
+    "resolution": "30米",
+    "crs": "WGS84/UTM",
+    "imageCount": "83454",
+    "dataSize": "185344.56 GB",
+    "area": "全国",
+    "mission": "Landsat 9",
+    "sensor": "光学",
+    "productLevel": "L1",
+    "description": "Landsat 9 是美国国家航空航天局（NASA）与美国地质调查局（USGS）联合运营的地球观测卫星，于 2021 年 9 月 27 日发射。本数据集是其经辐射定标、地形校正的 Collection 2 Level-1 级 正射纠正产品。",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(\r\n    coverageID=\"LC09_L1TP_153034_20230907_20230907_02_T1\", productID=\"LC09_C02_L1\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage,[\"B1\"])\r\nvis_params = {\"min\": 0, \"max\": 10000}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(69.47579990025, 37.4619569197, 8)",
+    "band_count": 11,
+    "bands": [
+     {
+      "bandNum": "B1",
+      "bandName": "B1",
+      "bandRank": 1,
+      "spectrumMin": 430.0,
+      "spectrumMax": 450.0,
+      "description": "气溶胶",
+      "inferred_role": "大气校正"
+     },
+     {
+      "bandNum": "B2",
+      "bandName": "B2",
+      "bandRank": 2,
+      "spectrumMin": 450.0,
+      "spectrumMax": 510.0,
+      "description": "蓝",
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B3",
+      "bandName": "B3",
+      "bandRank": 3,
+      "spectrumMin": 530.0,
+      "spectrumMax": 590.0,
+      "description": "绿",
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B4",
+      "bandName": "B4",
+      "bandRank": 4,
+      "spectrumMin": 640.0,
+      "spectrumMax": 670.0,
+      "description": "红",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B5",
+      "bandName": "B5",
+      "bandRank": 5,
+      "spectrumMin": 850.0,
+      "spectrumMax": 880.0,
+      "description": "近红",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B6",
+      "bandName": "B6",
+      "bandRank": 6,
+      "spectrumMin": 1570.0,
+      "spectrumMax": 1650.0,
+      "description": "SWIR1",
+      "inferred_role": "短波红外1"
+     },
+     {
+      "bandNum": "B7",
+      "bandName": "B7",
+      "bandRank": 7,
+      "spectrumMin": 2110.0,
+      "spectrumMax": 2290.0,
+      "description": "SWIR2",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B8",
+      "bandName": "B8",
+      "bandRank": 8,
+      "spectrumMin": 500.0,
+      "spectrumMax": 680.0,
+      "description": "全色",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B9",
+      "bandName": "B9",
+      "bandRank": 9,
+      "spectrumMin": 1360.0,
+      "spectrumMax": 1380.0,
+      "description": "Cirrus",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B10",
+      "bandName": "B10",
+      "bandRank": 10,
+      "spectrumMin": 10600.0,
+      "spectrumMax": 11190.0,
+      "description": "TIRS热红外传感器1",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B11",
+      "bandName": "B11",
+      "bandRank": 11,
+      "spectrumMin": 11500.0,
+      "spectrumMax": 12510.0,
+      "description": "TIRS热红外传感器2",
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 456,
+    "name": "LC09_C02_L2",
+    "alias": "Landsat-9 Collection 02 SR",
+    "type": 0,
+    "catalogName": "Landsat系列产品",
+    "resolution": "30米",
+    "crs": "WGS84/UTM",
+    "imageCount": "78944",
+    "dataSize": "100461.25 GB",
+    "area": "全国",
+    "mission": "Landsat 9",
+    "sensor": "光学",
+    "productLevel": "L2",
+    "description": "Landsat 9 是美国 NASA 与 USGS 联合运营的地球观测卫星，于 2021 年 9 月 27 日发射。LC09_C02_L2 是其 Collection 2 Level-2 级产品，已进行辐射定标、地形校正、大气校正，提供地表反射率（SR）与地表温度（ST）数据，几何精度最高，适用于长时间序列定量分析。\n",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(\r\n    coverageID=\"LC09_L2SP_122038_20230117_20230313_02_T1\", productID=\"LC09_C02_L2\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage,[\"SR_B1\"])\r\nvis_params = {\"min\": 0, \"max\": 10000}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(115.75, 31.73, 8)",
+    "band_count": 8,
+    "bands": [
+     {
+      "bandNum": "SR_B1",
+      "bandName": "B1",
+      "bandRank": 1,
+      "spectrumMin": 430.0,
+      "spectrumMax": 450.0,
+      "description": "气溶胶",
+      "inferred_role": "大气校正"
+     },
+     {
+      "bandNum": "SR_B2",
+      "bandName": "B2",
+      "bandRank": 2,
+      "spectrumMin": 450.0,
+      "spectrumMax": 510.0,
+      "description": "蓝",
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "SR_B3",
+      "bandName": "B3",
+      "bandRank": 3,
+      "spectrumMin": 530.0,
+      "spectrumMax": 590.0,
+      "description": "绿",
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "SR_B4",
+      "bandName": "B4",
+      "bandRank": 4,
+      "spectrumMin": 640.0,
+      "spectrumMax": 670.0,
+      "description": "红",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "SR_B5",
+      "bandName": "B5",
+      "bandRank": 5,
+      "spectrumMin": 850.0,
+      "spectrumMax": 880.0,
+      "description": "近红外",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "SR_B6",
+      "bandName": "B6",
+      "bandRank": 6,
+      "spectrumMin": 1570.0,
+      "spectrumMax": 1650.0,
+      "description": "短波红外1",
+      "inferred_role": "短波红外1"
+     },
+     {
+      "bandNum": "SR_B7",
+      "bandName": "B7",
+      "bandRank": 7,
+      "spectrumMin": 2110.0,
+      "spectrumMax": 2290.0,
+      "description": "短波红外2",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "ST_B10",
+      "bandName": "B10",
+      "bandRank": 10,
+      "spectrumMin": 10600.0,
+      "spectrumMax": 11190.0,
+      "description": "热红外",
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 453,
+    "name": "LC08_C02_L1",
+    "alias": "Landsat-8 Collection 02 Raw",
+    "type": 0,
+    "catalogName": "Landsat系列产品",
+    "resolution": "30米",
+    "crs": "WGS84/UTM",
+    "imageCount": "96467",
+    "dataSize": "214024.70 GB",
+    "area": "全国",
+    "mission": "Landsat 8",
+    "sensor": "光学",
+    "productLevel": "L1",
+    "description": "Landsat 8 于 2013 年 2 月 11 日发射，由 NASA 与 USGS 联合运营。是美国陆地卫星系列（Landsat）的第八颗卫星，主要用于获取全球地表覆盖、土地利用变化等观测数据，广泛应用于环境监测、农业、林业等领域。LC08_C02_L1 属于 Collection 2 的 Level-1 级产品，经辐射定标、系统几何校正与地形校正，几何误差 ≤12 m（RMSE），数据质量最高，可用于长时间序列分析、定量制图及变化检测。",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(\r\n    coverageID=\"LC08_L1TP_154031_20230906_20230912_02_T1\", productID=\"LC08_C02_L1\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage,[\"B1\"])\r\nvis_params = {\"min\": 0, \"max\": 10000}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(69.3183884178, 41.7456513857, 8)",
+    "band_count": 11,
+    "bands": [
+     {
+      "bandNum": "B1",
+      "bandName": "B1",
+      "bandRank": 1,
+      "spectrumMin": 430.0,
+      "spectrumMax": 450.0,
+      "description": "气溶胶",
+      "inferred_role": "大气校正"
+     },
+     {
+      "bandNum": "B2",
+      "bandName": "B2",
+      "bandRank": 2,
+      "spectrumMin": 450.0,
+      "spectrumMax": 510.0,
+      "description": "蓝",
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B3",
+      "bandName": "B3",
+      "bandRank": 3,
+      "spectrumMin": 530.0,
+      "spectrumMax": 590.0,
+      "description": "绿",
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B4",
+      "bandName": "B4",
+      "bandRank": 4,
+      "spectrumMin": 640.0,
+      "spectrumMax": 670.0,
+      "description": "红",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B5",
+      "bandName": "B5",
+      "bandRank": 5,
+      "spectrumMin": 850.0,
+      "spectrumMax": 880.0,
+      "description": "近红",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B6",
+      "bandName": "B6",
+      "bandRank": 6,
+      "spectrumMin": 1570.0,
+      "spectrumMax": 1650.0,
+      "description": "SWIR1",
+      "inferred_role": "短波红外1"
+     },
+     {
+      "bandNum": "B7",
+      "bandName": "B7",
+      "bandRank": 7,
+      "spectrumMin": 2110.0,
+      "spectrumMax": 2290.0,
+      "description": "SWIR2",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B8",
+      "bandName": "B8",
+      "bandRank": 8,
+      "spectrumMin": 500.0,
+      "spectrumMax": 680.0,
+      "description": "全色",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B9",
+      "bandName": "B9",
+      "bandRank": 9,
+      "spectrumMin": 1360.0,
+      "spectrumMax": 1380.0,
+      "description": "Cirrus",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B10",
+      "bandName": "B10",
+      "bandRank": 10,
+      "spectrumMin": 10600.0,
+      "spectrumMax": 11190.0,
+      "description": "TIRS热红外传感器1",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B11",
+      "bandName": "B11",
+      "bandRank": 11,
+      "spectrumMin": 11500.0,
+      "spectrumMax": 12510.0,
+      "description": "TIRS热红外传感器2",
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 455,
+    "name": "LC08_C02_L2",
+    "alias": "Landsat-8 Collection 02 SR",
+    "type": 0,
+    "catalogName": "Landsat系列产品",
+    "resolution": "30米",
+    "crs": "WGS84/UTM",
+    "imageCount": "93834",
+    "dataSize": "119338.90 GB",
+    "area": "全国",
+    "mission": "Landsat 8",
+    "sensor": "光学",
+    "productLevel": "L2",
+    "description": "Landsat 8 是美国 NASA 与 USGS 联合运行的地球观测卫星，于 2013 年 2 月 11 日发射。LC08_C02_L2是其 Collection 2 Level-2 级产品，完成辐射定标、地形校正和大气校正，提供地表反射率（SR）与地表温度（ST）数据；因几何精度或数据质量未达 T1 标准而归入 T2，可用于补充历史数据或云覆盖区域初步分析。",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(\r\n    coverageID=\"LC08_L2SP_112025_20230103_20230111_02_T1\", productID=\"LC08_C02_L2\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage,[\"SR_B1\"])\r\nvis_params = {\"min\": 0, \"max\": 10000}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(137.372214569, 50.26296779025, 8)",
+    "band_count": 8,
+    "bands": [
+     {
+      "bandNum": "SR_B1",
+      "bandName": "B1",
+      "bandRank": 1,
+      "spectrumMin": 430.0,
+      "spectrumMax": 450.0,
+      "description": "气溶胶",
+      "inferred_role": "大气校正"
+     },
+     {
+      "bandNum": "SR_B2",
+      "bandName": "B2",
+      "bandRank": 2,
+      "spectrumMin": 450.0,
+      "spectrumMax": 510.0,
+      "description": "蓝",
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "SR_B3",
+      "bandName": "B3",
+      "bandRank": 3,
+      "spectrumMin": 530.0,
+      "spectrumMax": 590.0,
+      "description": "绿",
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "SR_B4",
+      "bandName": "B4",
+      "bandRank": 4,
+      "spectrumMin": 640.0,
+      "spectrumMax": 670.0,
+      "description": "红",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "SR_B5",
+      "bandName": "B5",
+      "bandRank": 5,
+      "spectrumMin": 850.0,
+      "spectrumMax": 880.0,
+      "description": "近红外",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "SR_B6",
+      "bandName": "B6",
+      "bandRank": 6,
+      "spectrumMin": 1570.0,
+      "spectrumMax": 1650.0,
+      "description": "短波红外1",
+      "inferred_role": "短波红外1"
+     },
+     {
+      "bandNum": "SR_B7",
+      "bandName": "B7",
+      "bandRank": 7,
+      "spectrumMin": 2110.0,
+      "spectrumMax": 2290.0,
+      "description": "短波红外2",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "ST_B10",
+      "bandName": "B10",
+      "bandRank": 8,
+      "spectrumMin": 10600.0,
+      "spectrumMax": 11190.0,
+      "description": "热红外",
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 181,
+    "name": "LT05_L1TP_C02_T1",
+    "alias": "Landsat 5_L1TP_C02_T1",
+    "type": 0,
+    "catalogName": "Landsat系列产品",
+    "resolution": "30米",
+    "crs": "WGS84/UTM",
+    "imageCount": "6",
+    "dataSize": "3.0 GB",
+    "area": "湖北省部分地区",
+    "mission": "Landsat 5",
+    "sensor": "光学",
+    "productLevel": "L1TP",
+    "description": "Landsat 5 于 1984 年 3 月 16 日发射，2012 年 11 月 15 日退役。LT05_L1TP_C02_T1 是 USGS 发布的 Collection 2 Tier-1 L1TP 级产品，已完成辐射定标、系统几何校正与地形校正，几何精度优于 12 m，适用于 1984–2012 年长时间序列定量分析 。",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(\r\n    coverageID=\"LT05_L1TP_141033_19860804_20200917_02_T1\", productID=\"LT05_L1TP_C02_T1\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage, [\"B1\"])\r\nvis_params = {\"min\": -100, \"max\": 100}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(88.32, 38.943, 8)",
+    "band_count": 7,
+    "bands": [
+     {
+      "bandNum": "B1",
+      "bandName": "Blue",
+      "bandRank": 1,
+      "spectrumMin": 450.0,
+      "spectrumMax": 520.0,
+      "description": null,
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B2",
+      "bandName": "Green",
+      "bandRank": 2,
+      "spectrumMin": 520.0,
+      "spectrumMax": 600.0,
+      "description": null,
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B3",
+      "bandName": "Red",
+      "bandRank": 3,
+      "spectrumMin": 630.0,
+      "spectrumMax": 690.0,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B4",
+      "bandName": "Near-Infrared",
+      "bandRank": 4,
+      "spectrumMin": 760.0,
+      "spectrumMax": 900.0,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B5",
+      "bandName": "SWIR 1",
+      "bandRank": 5,
+      "spectrumMin": 1550.0,
+      "spectrumMax": 1750.0,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B6",
+      "bandName": "Thermal",
+      "bandRank": 6,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "短波红外2"
+     },
+     {
+      "bandNum": "B7",
+      "bandName": "SWIR 2",
+      "bandRank": 7,
+      "spectrumMin": 2080.0,
+      "spectrumMax": 2350.0,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 175,
+    "name": "LC08_L1T",
+    "alias": "Landsat 8 L1T",
+    "type": 0,
+    "catalogName": "Landsat系列产品",
+    "resolution": "15/30米",
+    "crs": "WGS84/UTM",
+    "imageCount": "1009",
+    "dataSize": "2.3 TB",
+    "area": "全球",
+    "mission": "Landsat 8",
+    "sensor": "光学",
+    "productLevel": "L1T",
+    "description": "Landsat 8 是美国 NASA 与 USGS 联合运营的地球观测卫星，2013 年 2 月 11 日发射。LC08_L1T 代表 Level-1 地形校正（L1T）级数据，已完成辐射定标、系统几何校正和基于数字高程模型的地形校正，坐标系为 UTM/WGS-84，几何精度优于 12 m，可直接用于制图、变化检测及后续大气校正、指数计算等定量分析。",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(\r\n    coverageID=\"LC81230392016205LGN00\", productID=\"LC08_L1T\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage,[\"B1\"])\r\nvis_params = {\"min\": 0, \"max\": 10000}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(113.836, 30.298, 8)",
+    "band_count": 9,
+    "bands": [
+     {
+      "bandNum": "B1",
+      "bandName": "Coastal",
+      "bandRank": 1,
+      "spectrumMin": 430.0,
+      "spectrumMax": 450.0,
+      "description": null,
+      "inferred_role": "大气校正"
+     },
+     {
+      "bandNum": "B2",
+      "bandName": "Blue",
+      "bandRank": 2,
+      "spectrumMin": 450.0,
+      "spectrumMax": 510.0,
+      "description": null,
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B3",
+      "bandName": "Green",
+      "bandRank": 3,
+      "spectrumMin": 530.0,
+      "spectrumMax": 590.0,
+      "description": null,
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B4",
+      "bandName": "Red",
+      "bandRank": 4,
+      "spectrumMin": 640.0,
+      "spectrumMax": 670.0,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B5",
+      "bandName": "Near-Infrared",
+      "bandRank": 5,
+      "spectrumMin": 850.0,
+      "spectrumMax": 880.0,
+      "description": null,
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B6",
+      "bandName": "SWIR 1",
+      "bandRank": 6,
+      "spectrumMin": 1570.0,
+      "spectrumMax": 1650.0,
+      "description": null,
+      "inferred_role": "短波红外1"
+     },
+     {
+      "bandNum": "B7",
+      "bandName": "SWIR 2",
+      "bandRank": 7,
+      "spectrumMin": 2110.0,
+      "spectrumMax": 2290.0,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B8",
+      "bandName": "Pan",
+      "bandRank": 8,
+      "spectrumMin": 500.0,
+      "spectrumMax": 680.0,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B9",
+      "bandName": "Cirrus",
+      "bandRank": 9,
+      "spectrumMin": 1360.0,
+      "spectrumMax": 1380.0,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 457,
+    "name": "S2_MSIL1C",
+    "alias": "Sentinel-2 MSI TOA",
+    "type": 0,
+    "catalogName": "Sentinel系列产品",
+    "resolution": "10米",
+    "crs": "WGS84/UTM",
+    "imageCount": "290183",
+    "dataSize": "470893.79 GB",
+    "area": "全国",
+    "mission": "哨兵二号",
+    "sensor": "光学",
+    "productLevel": "L1C",
+    "description": "Sentinel-2 L1C级产品是欧洲航天局哥白尼计划下哨兵2号卫星提供的关键数据产品，属于经过正射校正和亚像元级几何精校正后的大气表观反射率产品（Top-of-Atmosphere Reflectance）。能够以5天的高重访周期对全球陆地（除极区）进行高频观测，为大范围动态监测提供了数据基础。\nL1C产品包含13个多光谱波段，覆盖从可见光到短波红外的光谱范围。这些波段具有不同的空间分辨率，包括10米（4个波段）、20米（6个波段）和60米（3个波段），能够满足从精细地物识别到宏观地表格局分析的不同应用需求。",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(coverageID=\"T49RDM_20241205T032029\", productID=\"S2_MSIL1C\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage, [\"B04\"])\r\nvis_params = {\"min\": -100, \"max\": 100}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(110.5, 28.4, 10)",
+    "band_count": 13,
+    "bands": [
+     {
+      "bandNum": "B01",
+      "bandName": "Aerosols",
+      "bandRank": 1,
+      "spectrumMin": 433.0,
+      "spectrumMax": 453.0,
+      "description": "气溶胶",
+      "inferred_role": "大气校正"
+     },
+     {
+      "bandNum": "B02",
+      "bandName": "Blue",
+      "bandRank": 2,
+      "spectrumMin": 458.0,
+      "spectrumMax": 523.0,
+      "description": "蓝",
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B03",
+      "bandName": "Green",
+      "bandRank": 3,
+      "spectrumMin": 543.0,
+      "spectrumMax": 578.0,
+      "description": "绿",
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B04",
+      "bandName": "Red",
+      "bandRank": 4,
+      "spectrumMin": 650.0,
+      "spectrumMax": 680.0,
+      "description": "红",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B05",
+      "bandName": "Red Edge 1",
+      "bandRank": 5,
+      "spectrumMin": 698.0,
+      "spectrumMax": 713.0,
+      "description": "红边1",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B06",
+      "bandName": "Red Edge 2",
+      "bandRank": 6,
+      "spectrumMin": 734.0,
+      "spectrumMax": 748.0,
+      "description": "红边2",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B07",
+      "bandName": "Red Edge 3",
+      "bandRank": 7,
+      "spectrumMin": 765.0,
+      "spectrumMax": 785.0,
+      "description": "红边3",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B08",
+      "bandName": "NIR",
+      "bandRank": 8,
+      "spectrumMin": 785.0,
+      "spectrumMax": 900.0,
+      "description": "近红外",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B8A",
+      "bandName": "Red Edge 4",
+      "bandRank": 9,
+      "spectrumMin": 855.0,
+      "spectrumMax": 875.0,
+      "description": "红边4",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B09",
+      "bandName": "Water vapor",
+      "bandRank": 10,
+      "spectrumMin": 930.0,
+      "spectrumMax": 950.0,
+      "description": "水蒸气",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B10",
+      "bandName": "Cirrus",
+      "bandRank": 11,
+      "spectrumMin": 1365.0,
+      "spectrumMax": 1385.0,
+      "description": "卷云",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B11",
+      "bandName": "SWIR 1",
+      "bandRank": 12,
+      "spectrumMin": 1565.0,
+      "spectrumMax": 1655.0,
+      "description": "短波红外1",
+      "inferred_role": "短波红外1"
+     },
+     {
+      "bandNum": "B12",
+      "bandName": "SWIR 2",
+      "bandRank": 13,
+      "spectrumMin": 2100.0,
+      "spectrumMax": 2280.0,
+      "description": "短波红外2",
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 458,
+    "name": "S2_MSIL2A",
+    "alias": "Sentinel-2 MSI SR",
+    "type": 0,
+    "catalogName": "Sentinel系列产品",
+    "resolution": "10米",
+    "crs": "WGS84/UTM",
+    "imageCount": "271832",
+    "dataSize": "438439.82 GB",
+    "area": "全国",
+    "mission": "哨兵二号",
+    "sensor": "光学",
+    "productLevel": "L2A",
+    "description": "Sentinel-2 L2A级产品是欧空局哨兵2号卫星提供的通过Sen2Cor大气校正处理器对L1C级数据进行处理得到的高级别数据处理产品，经过大气校正的地表反射率数据，相比L1C级产品具有更高的数据精度和应用价值。经过大气校正的底部反射率数据，消除了大气中气溶胶、水蒸气等因素对地表反射信号的干扰，更真实地反映地表特征。\n产品采用UTM/WGS84投影，以100km×100km的瓦片为基本单位组织数据。",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(coverageID=\"T50SKD_20250103T030121\", productID=\"S2_MSIL2A\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage, [\"B04\"])\r\nvis_params = {\"min\": -100, \"max\": 100}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(114.3, 34.7, 10)",
+    "band_count": 12,
+    "bands": [
+     {
+      "bandNum": "B01",
+      "bandName": "Aerosols",
+      "bandRank": 1,
+      "spectrumMin": 433.0,
+      "spectrumMax": 453.0,
+      "description": "气溶胶",
+      "inferred_role": "大气校正"
+     },
+     {
+      "bandNum": "B02",
+      "bandName": "Blue",
+      "bandRank": 2,
+      "spectrumMin": 458.0,
+      "spectrumMax": 523.0,
+      "description": "蓝",
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B03",
+      "bandName": "Green",
+      "bandRank": 3,
+      "spectrumMin": 543.0,
+      "spectrumMax": 578.0,
+      "description": "绿",
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B04",
+      "bandName": "Red",
+      "bandRank": 4,
+      "spectrumMin": 650.0,
+      "spectrumMax": 680.0,
+      "description": "红",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B05",
+      "bandName": "Red Edge 1",
+      "bandRank": 5,
+      "spectrumMin": 698.0,
+      "spectrumMax": 713.0,
+      "description": "红边1",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B06",
+      "bandName": "Red Edge 2",
+      "bandRank": 6,
+      "spectrumMin": 734.0,
+      "spectrumMax": 748.0,
+      "description": "红边2",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B07",
+      "bandName": "Red Edge 3",
+      "bandRank": 7,
+      "spectrumMin": 765.0,
+      "spectrumMax": 785.0,
+      "description": "红边3",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B08",
+      "bandName": "NIR",
+      "bandRank": 8,
+      "spectrumMin": 785.0,
+      "spectrumMax": 900.0,
+      "description": "近红外",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B8A",
+      "bandName": "Narrow NIR",
+      "bandRank": 9,
+      "spectrumMin": 855.0,
+      "spectrumMax": 875.0,
+      "description": "红边4",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B09",
+      "bandName": "Water vapor",
+      "bandRank": 10,
+      "spectrumMin": 930.0,
+      "spectrumMax": 950.0,
+      "description": "水蒸气",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B11",
+      "bandName": "SWIR 1",
+      "bandRank": 11,
+      "spectrumMin": 1565.0,
+      "spectrumMax": 1655.0,
+      "description": "短波红外1",
+      "inferred_role": "短波红外1"
+     },
+     {
+      "bandNum": "B12",
+      "bandName": "SWIR 2",
+      "bandRank": 12,
+      "spectrumMin": 2100.0,
+      "spectrumMax": 2280.0,
+      "description": "短波红外2",
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 333,
+    "name": "S2A_MSIL2A",
+    "alias": "Sentinel-2A_MSIL2A",
+    "type": 0,
+    "catalogName": "Sentinel系列产品",
+    "resolution": "10米",
+    "crs": "WGS84/UTM",
+    "imageCount": "8593",
+    "dataSize": "17.8 TB",
+    "area": "全国",
+    "mission": "哨兵二号",
+    "sensor": null,
+    "productLevel": "L2A",
+    "description": "S2A_MSIL2A 产品是由 Sentinel-2A 卫星搭载的多光谱成像仪（MSI）采集的数据经 Level-2A 处理后生成的地表反射率产品。该产品基于 L1C（正射纠正的地表反射率）数据，通过大气校正处理（Sen2Cor 处理器）生成，反映地表真实光谱特性，适用于土地覆盖分类、农业监测、植被变化分析等遥感应用。",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(\r\n    coverageID=\"S2A_MSIL2A_20210729T031541_N0301_R118_T49SDS_20210729T052240.SAFE_RGB\", productID=\"S2A_MSIL2A\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage,[\"blue\"])\r\nvis_params = {\"min\": 0, \"max\": 10000}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(110.51440313445, 32.94208120745, 8)",
+    "band_count": 25,
+    "bands": [
+     {
+      "bandNum": "B01_20m",
+      "bandName": "B01_20m",
+      "bandRank": 1,
+      "spectrumMin": 433.0,
+      "spectrumMax": 453.0,
+      "description": null,
+      "inferred_role": "大气校正"
+     },
+     {
+      "bandNum": "B01_60m",
+      "bandName": "B01_60m",
+      "bandRank": 2,
+      "spectrumMin": 458.0,
+      "spectrumMax": 523.0,
+      "description": null,
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B02_10m",
+      "bandName": "B02_10m",
+      "bandRank": 3,
+      "spectrumMin": 543.0,
+      "spectrumMax": 578.0,
+      "description": null,
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B02_20m",
+      "bandName": "B02_20m",
+      "bandRank": 4,
+      "spectrumMin": 650.0,
+      "spectrumMax": 680.0,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B02_60m",
+      "bandName": "B02_60m",
+      "bandRank": 5,
+      "spectrumMin": 698.0,
+      "spectrumMax": 713.0,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B03_10m",
+      "bandName": "B03_10m",
+      "bandRank": 6,
+      "spectrumMin": 733.0,
+      "spectrumMax": 748.0,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B03_20m",
+      "bandName": "B03_20m",
+      "bandRank": 7,
+      "spectrumMin": 773.0,
+      "spectrumMax": 793.0,
+      "description": null,
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B03_60m",
+      "bandName": "B03_60m",
+      "bandRank": 8,
+      "spectrumMin": 785.0,
+      "spectrumMax": 900.0,
+      "description": null,
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B04_10m",
+      "bandName": "B04_10m",
+      "bandRank": 9,
+      "spectrumMin": 855.0,
+      "spectrumMax": 875.0,
+      "description": null,
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B04_20m",
+      "bandName": "B04_20m",
+      "bandRank": 10,
+      "spectrumMin": 935.0,
+      "spectrumMax": 955.0,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B04_60m",
+      "bandName": "B04_60m",
+      "bandRank": 11,
+      "spectrumMin": 1360.0,
+      "spectrumMax": 1390.0,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B05_20m",
+      "bandName": "B05_20m",
+      "bandRank": 12,
+      "spectrumMin": 1565.0,
+      "spectrumMax": 1655.0,
+      "description": null,
+      "inferred_role": "短波红外1"
+     },
+     {
+      "bandNum": "B05_60m",
+      "bandName": "B05_60m",
+      "bandRank": 13,
+      "spectrumMin": 2100.0,
+      "spectrumMax": 2280.0,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B06_20m",
+      "bandName": "B06_20m",
+      "bandRank": 14,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B06_60m",
+      "bandName": "B06_60m",
+      "bandRank": 15,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B07_20m",
+      "bandName": "B07_20m",
+      "bandRank": 16,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B07_60m",
+      "bandName": "B07_60m",
+      "bandRank": 17,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B08_10m",
+      "bandName": "B08_10m",
+      "bandRank": 18,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B09_60m",
+      "bandName": "B09_60m",
+      "bandRank": 19,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B11_20m",
+      "bandName": "B11_20m",
+      "bandRank": 20,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B11_60m",
+      "bandName": "B11_60m",
+      "bandRank": 21,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B12_20m",
+      "bandName": "B12_20m",
+      "bandRank": 22,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B12_60m",
+      "bandName": "B12_60m",
+      "bandRank": 23,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B8A_20m",
+      "bandName": "B8A_20m",
+      "bandRank": 24,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B8A_60m",
+      "bandName": "B8A_60m",
+      "bandRank": 25,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 6,
+    "name": "S2B_MSIL1C",
+    "alias": "Sentinel-2B_MSIL1C",
+    "type": 0,
+    "catalogName": "Sentinel系列产品",
+    "resolution": "10米",
+    "crs": "WGS84/UTM",
+    "imageCount": "3759",
+    "dataSize": "8.2 TB",
+    "area": "全国",
+    "mission": "哨兵二号",
+    "sensor": "光学",
+    "productLevel": "L2A",
+    "description": "S2B_MSIL1C 产品是由 Sentinel-2B 卫星搭载的多光谱成像仪（MSI）采集的数据经 Level-1C 处理后生成的正射纠正地表反射率产品。该产品对原始观测数据进行了几何校正和辐射定标，并基于地形模型进行正射校正，保证空间定位精度。该产品反映了地表在大气顶层的光谱信息，适用于大气校正处理、土地覆盖分类、植被监测及环境变化研究等遥感应用。",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(coverageID=\"T48RXS_20190728T032549\", productID=\"S2B_MSIL1C\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage, [\"B04\"])\r\nvis_params = {\"min\": -100, \"max\": 100}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(106.582, 28.423, 10)\r\n",
+    "band_count": 13,
+    "bands": [
+     {
+      "bandNum": "B01",
+      "bandName": "Coastal",
+      "bandRank": 1,
+      "spectrumMin": 433.0,
+      "spectrumMax": 453.0,
+      "description": null,
+      "inferred_role": "大气校正"
+     },
+     {
+      "bandNum": "B02",
+      "bandName": "Blue",
+      "bandRank": 2,
+      "spectrumMin": 458.0,
+      "spectrumMax": 523.0,
+      "description": null,
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B03",
+      "bandName": "Green",
+      "bandRank": 3,
+      "spectrumMin": 543.0,
+      "spectrumMax": 578.0,
+      "description": null,
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B04",
+      "bandName": "Red",
+      "bandRank": 4,
+      "spectrumMin": 650.0,
+      "spectrumMax": 680.0,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B05",
+      "bandName": "Vegetation red edge 1",
+      "bandRank": 5,
+      "spectrumMin": 698.0,
+      "spectrumMax": 713.0,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B06",
+      "bandName": "Vegetation red edge 2",
+      "bandRank": 6,
+      "spectrumMin": 733.0,
+      "spectrumMax": 748.0,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B07",
+      "bandName": "Vegetation red edge 3",
+      "bandRank": 7,
+      "spectrumMin": 773.0,
+      "spectrumMax": 793.0,
+      "description": null,
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B08",
+      "bandName": "Near-Infrared",
+      "bandRank": 8,
+      "spectrumMin": 785.0,
+      "spectrumMax": 899.0,
+      "description": null,
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B8A",
+      "bandName": "Narrow NIR",
+      "bandRank": 8,
+      "spectrumMin": 855.0,
+      "spectrumMax": 875.0,
+      "description": null,
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B09",
+      "bandName": "Water vapour",
+      "bandRank": 9,
+      "spectrumMin": 930.0,
+      "spectrumMax": 960.0,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B10",
+      "bandName": "Cirrus",
+      "bandRank": 10,
+      "spectrumMin": 1365.0,
+      "spectrumMax": 1385.0,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B11",
+      "bandName": "SWIR 1",
+      "bandRank": 11,
+      "spectrumMin": 1565.0,
+      "spectrumMax": 1655.0,
+      "description": null,
+      "inferred_role": "短波红外1"
+     },
+     {
+      "bandNum": "B12",
+      "bandName": "SWIR 2",
+      "bandRank": 12,
+      "spectrumMin": 2100.0,
+      "spectrumMax": 2280.0,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 4,
+    "name": "S2A_MSIL1C",
+    "alias": "Sentinel-2A_MSIL1C",
+    "type": 0,
+    "catalogName": "Sentinel系列产品",
+    "resolution": "10米",
+    "crs": "WGS84/UTM",
+    "imageCount": "5265",
+    "dataSize": "10789.39 GB",
+    "area": "全国",
+    "mission": "哨兵二号",
+    "sensor": null,
+    "productLevel": "L1C",
+    "description": "S2A_MSIL1C 产品是由 Sentinel-2A 卫星搭载的多光谱成像仪（MSI）采集并经 Level-1C 处理生成的正射纠正反射率产品。该产品提供了在太阳顶层（TOA, Top Of Atmosphere）条件下的多光谱影像数据，并已进行几何校正（包括地形影响纠正）与投影处理，具备一致的空间定位精度，适用于大范围遥感监测、地物识别、环境变化分析等多种应用。",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(coverageID=\"T49REK_20231004T030551\", productID=\"S2A_MSIL1C\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage, [\"B02\"])\r\nvis_params = {}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(111.551, 26.625, 9)",
+    "band_count": 13,
+    "bands": [
+     {
+      "bandNum": "B01",
+      "bandName": "Coastal",
+      "bandRank": 1,
+      "spectrumMin": 433.0,
+      "spectrumMax": 453.0,
+      "description": null,
+      "inferred_role": "大气校正"
+     },
+     {
+      "bandNum": "B02",
+      "bandName": "Blue",
+      "bandRank": 2,
+      "spectrumMin": 458.0,
+      "spectrumMax": 523.0,
+      "description": null,
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B03",
+      "bandName": "Green",
+      "bandRank": 3,
+      "spectrumMin": 543.0,
+      "spectrumMax": 578.0,
+      "description": null,
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B04",
+      "bandName": "Red",
+      "bandRank": 4,
+      "spectrumMin": 650.0,
+      "spectrumMax": 680.0,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B05",
+      "bandName": "Vegetation red edge 1",
+      "bandRank": 5,
+      "spectrumMin": 698.0,
+      "spectrumMax": 713.0,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B06",
+      "bandName": "Vegetation red edge 2",
+      "bandRank": 6,
+      "spectrumMin": 733.0,
+      "spectrumMax": 748.0,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B07",
+      "bandName": "Vegetation red edge 3",
+      "bandRank": 7,
+      "spectrumMin": 773.0,
+      "spectrumMax": 793.0,
+      "description": null,
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B08",
+      "bandName": "Near-Infrared",
+      "bandRank": 8,
+      "spectrumMin": 785.0,
+      "spectrumMax": 899.0,
+      "description": null,
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B8A",
+      "bandName": "Narrow NIR",
+      "bandRank": 9,
+      "spectrumMin": 855.0,
+      "spectrumMax": 875.0,
+      "description": null,
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B09",
+      "bandName": "Water vapour",
+      "bandRank": 10,
+      "spectrumMin": 930.0,
+      "spectrumMax": 960.0,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B10",
+      "bandName": "Cirrus",
+      "bandRank": 11,
+      "spectrumMin": 1365.0,
+      "spectrumMax": 1385.0,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B11",
+      "bandName": "SWIR 1",
+      "bandRank": 12,
+      "spectrumMin": 1565.0,
+      "spectrumMax": 1655.0,
+      "description": null,
+      "inferred_role": "短波红外1"
+     },
+     {
+      "bandNum": "B12",
+      "bandName": "SWIR 2",
+      "bandRank": 13,
+      "spectrumMin": 2100.0,
+      "spectrumMax": 2280.0,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 34,
+    "name": "LJ01_L2",
+    "alias": "珞珈一号夜光遥感数据",
+    "type": 0,
+    "catalogName": "珞珈系列产品",
+    "resolution": "130米",
+    "crs": "WGS84/UTM",
+    "imageCount": "14",
+    "dataSize": "135.7 MB",
+    "area": "全国",
+    "mission": "珞珈一号",
+    "sensor": "光学",
+    "productLevel": "L2",
+    "description": "珞珈一号卫星是全球首颗专业夜光遥感卫星，由武汉大学领衔，联合长光卫星技术有限公司研制，于 2018 年 6 月成功发射，是全球首颗专业夜间灯光遥感卫星，其空间分辨率约130米，幅宽250km²，光谱范围覆盖‌480nm至800nm‌，重点聚焦可见光至近红外区域，‌在理想情况下15天即可完成全球夜间灯光遥感数据的采集。本数据集为经过辐射校正和系统几何校正的L2级产品。",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(\r\n    coverageID=\"LuoJia1-01_LR201809085357_20180907144420_HDR_0021_gec\", productID=\"LJ01_L2\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage,[\"LJ01\"])\r\nvis_params = {\"min\": 0, \"max\": 10000}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(114.0028705, 30.3910095, 8)",
+    "band_count": 1,
+    "bands": [
+     {
+      "bandNum": "LJ01",
+      "bandName": "LJ01",
+      "bandRank": 1,
+      "spectrumMin": 480.0,
+      "spectrumMax": 800.0,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 593,
+    "name": "LJ3II_L1B_Fusion",
+    "alias": "武汉一号全色多光谱融合数据(珞珈三号02星)",
+    "type": 0,
+    "catalogName": "珞珈系列产品",
+    "resolution": "0.5米",
+    "crs": null,
+    "imageCount": "1071",
+    "dataSize": "6699.51 GB",
+    "area": "武汉市",
+    "mission": "武汉一号",
+    "sensor": "光学",
+    "productLevel": "L1B",
+    "description": "武汉一号（珞珈三号 02 星）由武汉大学宇航科学与技术研究院高精度智能遥感卫星团队自主研制，旨在用高性价比小卫星验证无地面控制的高精度几何定位和星上智能处理技术。2024 年 5 月 21 日 12 时 15 分，武汉一号搭乘快舟十一号固体运载火箭，在酒泉卫星发射中心点火升空。该卫星具备多种强大功能，涵盖 0.5 米分辨率全色成像、10 米分辨率高光谱成像、立体测绘、夜光成像等多种任务模式，还拥有在轨智能图像处理能力，业务化运行成熟，数传速率达每秒 1.8G，完全满足实传要求。武汉一号融合数据以武汉一号全色数据与武汉一号多光谱数据为基础，采用Gram-Schmidt 光谱锐化算法进行融合，影像融合后的分辨率为0.5米，覆盖蓝、绿、红、近红外等光谱范围，产品级别为L1B。",
+    "sampleCode": "",
+    "band_count": 3,
+    "bands": [
+     {
+      "bandNum": "B1",
+      "bandName": "BLUE",
+      "bandRank": 1,
+      "spectrumMin": 450.0,
+      "spectrumMax": 520.0,
+      "description": null,
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B2",
+      "bandName": "GREEN",
+      "bandRank": 2,
+      "spectrumMin": 520.0,
+      "spectrumMax": 600.0,
+      "description": null,
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B3",
+      "bandName": "RED",
+      "bandRank": 3,
+      "spectrumMin": 630.0,
+      "spectrumMax": 690.0,
+      "description": null,
+      "inferred_role": "红"
+     }
+    ]
+   },
+   {
+    "id": 460,
+    "name": "LJ4I_HSI_32B",
+    "alias": "人民健康号高光谱数据（32波段）",
+    "type": 0,
+    "catalogName": "珞珈系列产品",
+    "resolution": "20米",
+    "crs": "WGS84",
+    "imageCount": "6",
+    "dataSize": "0.9 GB",
+    "area": "全国",
+    "mission": "人民健康号",
+    "sensor": "高光谱",
+    "productLevel": "L1A",
+    "description": "人民健康号（珞珈四号01星）由武汉大学宇航科学与技术研究院总体设计，联合哈尔滨工大卫星技术有限公司、中国科学院长春光学精密机械与物理研究所等单位研制，旨在通过“遥感+医学”融合创新，建立面向环境健康因素的广域综合监测系统，实现对影响人类健康的“水-土-气”等环境因子的高精度遥感智能反演，填补全球健康研究领域遥感监测空白。\n2024年9月24日10时31分，人民健康号搭乘捷龙三号固体运载火箭，在山东海阳东方航天港点火升空，顺利进入预定轨道。该卫星具备多种先进功能，涵盖可见光高光谱成像、紫外多光谱成像等多种任务模式，拥有在轨数据采集与处理能力，业务化运行基础扎实，数传速率达每秒900M。\n人民健康号卫星可获取多种模式的高光谱影像，涵盖5谱、9谱、17谱、32谱等，本数据为32谱。数据经过系统的辐射校正处理，产品级别为L1A；对应的单幅成像幅宽可达300km，单幅图幅面积可达120万km²，能高",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(\r\n    coverageID=\"LJ04_HSI1B32_W59.484_S26.424_20241112T2210_001_L1A\", productID=\"LJ4I_HSI_32B\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage,[\"B1\"])\r\nvis_params = {\"min\": 0, \"max\": 10000}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(-59.4864968433, -26.42453157365, 8)",
+    "band_count": 32,
+    "bands": [
+     {
+      "bandNum": "B1",
+      "bandName": "BLUE",
+      "bandRank": 1,
+      "spectrumMin": 407.0,
+      "spectrumMax": 417.0,
+      "description": "N/A",
+      "inferred_role": "大气校正"
+     },
+     {
+      "bandNum": "B2",
+      "bandName": "BLUE",
+      "bandRank": 2,
+      "spectrumMin": 450.0,
+      "spectrumMax": 460.0,
+      "description": "N/A",
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B3",
+      "bandName": "BLUE",
+      "bandRank": 3,
+      "spectrumMin": 475.0,
+      "spectrumMax": 485.0,
+      "description": "蓝色波段1，地物识别等",
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B4",
+      "bandName": "BLUE",
+      "bandRank": 4,
+      "spectrumMin": 485.0,
+      "spectrumMax": 495.0,
+      "description": "蓝色波段2，监测作物健康状况",
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B5",
+      "bandName": "GREEN",
+      "bandRank": 5,
+      "spectrumMin": 515.0,
+      "spectrumMax": 525.0,
+      "description": "植被重金属Cu监测",
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B6",
+      "bandName": "GREEN",
+      "bandRank": 6,
+      "spectrumMin": 545.0,
+      "spectrumMax": 555.0,
+      "description": "植物白粉病监测",
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B7",
+      "bandName": "GREEN",
+      "bandRank": 7,
+      "spectrumMin": 555.0,
+      "spectrumMax": 565.0,
+      "description": "植被重金属Zn监测",
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B8",
+      "bandName": "GREEN",
+      "bandRank": 8,
+      "spectrumMin": 565.0,
+      "spectrumMax": 575.0,
+      "description": "绿色波段，地物识别等",
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B9",
+      "bandName": "GREEN",
+      "bandRank": 9,
+      "spectrumMin": 575.0,
+      "spectrumMax": 585.0,
+      "description": "水稻尖线虫病监测",
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B10",
+      "bandName": "RED",
+      "bandRank": 10,
+      "spectrumMin": 650.0,
+      "spectrumMax": 660.0,
+      "description": "红色波段1，地物识别等",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B11",
+      "bandName": "RED",
+      "bandRank": 11,
+      "spectrumMin": 660.0,
+      "spectrumMax": 670.0,
+      "description": "红色波段2，植被指数",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B12",
+      "bandName": "RED",
+      "bandRank": 12,
+      "spectrumMin": 670.0,
+      "spectrumMax": 680.0,
+      "description": "叶绿素荧光检测-红光 ",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B13",
+      "bandName": "RED",
+      "bandRank": 13,
+      "spectrumMin": 675.0,
+      "spectrumMax": 685.0,
+      "description": "植被重金属Pb监测",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B14",
+      "bandName": "RED",
+      "bandRank": 14,
+      "spectrumMin": 690.0,
+      "spectrumMax": 700.0,
+      "description": "叶绿素荧光检测-O2B",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B15",
+      "bandName": "RED",
+      "bandRank": 15,
+      "spectrumMin": 700.0,
+      "spectrumMax": 710.0,
+      "description": "红边植被长势",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B16",
+      "bandName": "RED",
+      "bandRank": 16,
+      "spectrumMin": 705.0,
+      "spectrumMax": 715.0,
+      "description": "森林郁闭度",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B17",
+      "bandName": "RED",
+      "bandRank": 17,
+      "spectrumMin": 710.0,
+      "spectrumMax": 720.0,
+      "description": "植被重金属Cd监测、植被长势",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B18",
+      "bandName": "RED",
+      "bandRank": 18,
+      "spectrumMin": 715.0,
+      "spectrumMax": 725.0,
+      "description": "番茄黄化曲叶病监测",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B19",
+      "bandName": "RED",
+      "bandRank": 19,
+      "spectrumMin": 720.0,
+      "spectrumMax": 730.0,
+      "description": "植物微生物浸染",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B20",
+      "bandName": "RED",
+      "bandRank": 20,
+      "spectrumMin": 725.0,
+      "spectrumMax": 735.0,
+      "description": "N/A",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B21",
+      "bandName": "RED",
+      "bandRank": 21,
+      "spectrumMin": 735.0,
+      "spectrumMax": 745.0,
+      "description": "植物微生物浸染，植被叶绿素含量",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B22",
+      "bandName": "RED",
+      "bandRank": 22,
+      "spectrumMin": 746.0,
+      "spectrumMax": 756.0,
+      "description": "叶绿素荧光检测-远红外",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B23",
+      "bandName": "NIR",
+      "bandRank": 23,
+      "spectrumMin": 755.0,
+      "spectrumMax": 765.0,
+      "description": "叶面积指数",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B24",
+      "bandName": "NIR",
+      "bandRank": 24,
+      "spectrumMin": 775.0,
+      "spectrumMax": 785.0,
+      "description": "叶绿素荧光监测",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B25",
+      "bandName": "NIR",
+      "bandRank": 25,
+      "spectrumMin": 795.0,
+      "spectrumMax": 805.0,
+      "description": "N/A",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B26",
+      "bandName": "NIR",
+      "bandRank": 26,
+      "spectrumMin": 810.0,
+      "spectrumMax": 820.0,
+      "description": "植物条锈病监测",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B27",
+      "bandName": "NIR",
+      "bandRank": 27,
+      "spectrumMin": 825.0,
+      "spectrumMax": 835.0,
+      "description": "N/A",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B28",
+      "bandName": "NIR",
+      "bandRank": 28,
+      "spectrumMin": 837.0,
+      "spectrumMax": 847.0,
+      "description": "监测作物健康状况，量化植被数量",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B29",
+      "bandName": "NIR",
+      "bandRank": 29,
+      "spectrumMin": 860.0,
+      "spectrumMax": 870.0,
+      "description": "植被信息提取",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B30",
+      "bandName": "NIR",
+      "bandRank": 30,
+      "spectrumMin": 905.0,
+      "spectrumMax": 915.0,
+      "description": "叶绿素荧光检测-Ca II线",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B31",
+      "bandName": "NIR",
+      "bandRank": 31,
+      "spectrumMin": 935.0,
+      "spectrumMax": 945.0,
+      "description": "植被砷含量监测",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B32",
+      "bandName": "NIR",
+      "bandRank": 32,
+      "spectrumMin": 980.0,
+      "spectrumMax": 990.0,
+      "description": "生物量反演、海（湖）岸线",
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 461,
+    "name": "LJ4I_HSI_5B",
+    "alias": "人民健康号高光谱数据（5波段）",
+    "type": 0,
+    "catalogName": "珞珈系列产品",
+    "resolution": "20米",
+    "crs": "WGS84",
+    "imageCount": "9",
+    "dataSize": "0.9 GB",
+    "area": "全国",
+    "mission": "人民健康号",
+    "sensor": "高光谱",
+    "productLevel": "L1A",
+    "description": "人民健康号（珞珈四号01星）由武汉大学宇航科学与技术研究院总体设计，联合哈尔滨工大卫星技术有限公司、中国科学院长春光学精密机械与物理研究所等单位研制，旨在通过“遥感+医学”融合创新，建立面向环境健康因素的广域综合监测系统，实现对影响人类健康的“水-土-气”等环境因子的高精度遥感智能反演，填补全球健康研究领域遥感监测空白。\n2024年9月24日10时31分，人民健康号搭乘捷龙三号固体运载火箭，在山东海阳东方航天港点火升空，顺利进入预定轨道。该卫星具备多种先进功能，涵盖可见光高光谱成像、紫外多光谱成像等多种任务模式，拥有在轨数据采集与处理能力，业务化运行基础扎实，数传速率达每秒900M。\n人民健康号卫星可获取多种模式的高光谱影像，涵盖5谱、9谱、17谱、32谱等，本数据为5谱。数据经过系统的辐射校正处理，产品级别为L1A；对应的单幅成像幅宽可达300km，单幅图幅面积可达120万km²，能高效",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(\r\n    coverageID=\"LJ04_HSI1B5_W114.055_N34.432_20240925T0222_001\", productID=\"LJ4I_HSI_5B\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage,[\"B1\"])\r\nvis_params = {\"min\": 0, \"max\": 10000}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(-114.05056562735, 34.4326958019, 8)",
+    "band_count": 5,
+    "bands": [
+     {
+      "bandNum": "B1",
+      "bandName": "Visible Band",
+      "bandRank": 1,
+      "spectrumMin": 450.0,
+      "spectrumMax": 900.0,
+      "description": "全色波段",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B2",
+      "bandName": "Blue",
+      "bandRank": 2,
+      "spectrumMin": 475.0,
+      "spectrumMax": 485.0,
+      "description": "绿光波段、土壤与高原作物重金属检测　",
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B3",
+      "bandName": "GREEN",
+      "bandRank": 3,
+      "spectrumMin": 555.0,
+      "spectrumMax": 565.0,
+      "description": "绿光波段、土壤与高原作物重金属检测　",
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B4",
+      "bandName": "Red",
+      "bandRank": 4,
+      "spectrumMin": 645.0,
+      "spectrumMax": 655.0,
+      "description": "藻蓝蛋白、叶绿素",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B5",
+      "bandName": "NIR",
+      "bandRank": 5,
+      "spectrumMin": 837.0,
+      "spectrumMax": 847.0,
+      "description": "10米NDVI",
+      "inferred_role": "近红外"
+     }
+    ]
+   },
+   {
+    "id": 462,
+    "name": "LJ4I_HSI_17B",
+    "alias": "人民健康号高光谱数据（17波段）",
+    "type": 0,
+    "catalogName": "珞珈系列产品",
+    "resolution": "20米",
+    "crs": "WGS84",
+    "imageCount": "129",
+    "dataSize": "51.5 GB",
+    "area": "全国",
+    "mission": "人民健康号",
+    "sensor": "高光谱",
+    "productLevel": "L1A",
+    "description": "人民健康号（珞珈四号01星）由武汉大学宇航科学与技术研究院总体设计，联合哈尔滨工大卫星技术有限公司、中国科学院长春光学精密机械与物理研究所等单位研制，旨在通过“遥感+医学”融合创新，建立面向环境健康因素的广域综合监测系统，实现对影响人类健康的“水-土-气”等环境因子的高精度遥感智能反演，填补全球健康研究领域遥感监测空白。\n2024年9月24日10时31分，人民健康号搭乘捷龙三号固体运载火箭，在山东海阳东方航天港点火升空，顺利进入预定轨道。该卫星具备多种先进功能，涵盖可见光高光谱成像、紫外多光谱成像等多种任务模式，拥有在轨数据采集与处理能力，业务化运行基础扎实，数传速率达每秒900M。\n人民健康号卫星可获取多种模式的高光谱影像，涵盖5谱、9谱、17谱、32谱等，本数据为17谱。数据经过系统的辐射校正处理，产品级别为L1A；对应的单幅成像幅宽可达300km，单幅图幅面积可达120万km²，能高",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(\r\n    coverageID=\"LJ04_HSI1B17_E100.022_N42.792_20250702T1256_006_L1A\", productID=\"LJ4I_HSI_17B\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage,[\"B1\"])\r\nvis_params = {\"min\": 0, \"max\": 10000}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(100.02552637405, 42.79273858675, 8)",
+    "band_count": 17,
+    "bands": [
+     {
+      "bandNum": "B1",
+      "bandName": "BLUE",
+      "bandRank": 1,
+      "spectrumMin": 407.0,
+      "spectrumMax": 417.0,
+      "description": "改进气溶胶监测、内陆/沿海水域",
+      "inferred_role": "大气校正"
+     },
+     {
+      "bandNum": "B2",
+      "bandName": "BLUE",
+      "bandRank": 2,
+      "spectrumMin": 438.0,
+      "spectrumMax": 448.0,
+      "description": "气溶胶监测、NO2、PM2.5、PM10",
+      "inferred_role": "大气校正"
+     },
+     {
+      "bandNum": "B3",
+      "bandName": "BLUE",
+      "bandRank": 3,
+      "spectrumMin": 475.0,
+      "spectrumMax": 485.0,
+      "description": "蓝光波段、地物识别、水体叶绿素，土壤As,Cu含量、PM2.5、PM10",
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B4",
+      "bandName": "BLUE",
+      "bandRank": 4,
+      "spectrumMin": 485.0,
+      "spectrumMax": 495.0,
+      "description": "清洁水体的叶绿素a，蓝色波段、土壤As,Cu含量、PM2.5、PM10",
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B5",
+      "bandName": "GREEN",
+      "bandRank": 5,
+      "spectrumMin": 555.0,
+      "spectrumMax": 565.0,
+      "description": "绿光波段、土壤与高原作物重金属检测　",
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B6",
+      "bandName": "GREEN",
+      "bandRank": 6,
+      "spectrumMin": 595.0,
+      "spectrumMax": 605.0,
+      "description": "叶片萎黄、植被胁迫绘图",
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B7",
+      "bandName": "GREEN",
+      "bandRank": 7,
+      "spectrumMin": 615.0,
+      "spectrumMax": 625.0,
+      "description": "蓝藻水华、蛋白浓度反演",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B8",
+      "bandName": "RED",
+      "bandRank": 8,
+      "spectrumMin": 645.0,
+      "spectrumMax": 655.0,
+      "description": "藻蓝蛋白、叶绿素",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B9",
+      "bandName": "RED",
+      "bandRank": 9,
+      "spectrumMin": 660.0,
+      "spectrumMax": 670.0,
+      "description": "红光波段，归一化植被指数计算　",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B10",
+      "bandName": "RED",
+      "bandRank": 10,
+      "spectrumMin": 675.0,
+      "spectrumMax": 685.0,
+      "description": "植被叶绿素含量、水体叶绿素荧光",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B11",
+      "bandName": "RED",
+      "bandRank": 11,
+      "spectrumMin": 700.0,
+      "spectrumMax": 710.0,
+      "description": "作物类型识别、水体中叶绿素a、森林郁闭度、植物胁迫",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B12",
+      "bandName": "RED",
+      "bandRank": 12,
+      "spectrumMin": 735.0,
+      "spectrumMax": 745.0,
+      "description": "叶面积指数、叶绿素、植被胁迫",
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B13",
+      "bandName": "RED",
+      "bandRank": 13,
+      "spectrumMin": 747.0,
+      "spectrumMax": 756.0,
+      "description": "植被冠层氮含量，水体悬浮物，湿地植被红边脊",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B14",
+      "bandName": "NIR",
+      "bandRank": 14,
+      "spectrumMin": 837.0,
+      "spectrumMax": 847.0,
+      "description": "10米NDVI",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B15",
+      "bandName": "NIR",
+      "bandRank": 15,
+      "spectrumMin": 860.0,
+      "spectrumMax": 870.0,
+      "description": "建筑材料，土壤Fe含量",
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B16",
+      "bandName": "NIR",
+      "bandRank": 16,
+      "spectrumMin": 940.0,
+      "spectrumMax": 950.0,
+      "description": "盐碱沼泽地监测",
+      "inferred_role": null
+     },
+     {
+      "bandNum": "B17",
+      "bandName": "NIR",
+      "bandRank": 17,
+      "spectrumMin": 980.0,
+      "spectrumMax": 990.0,
+      "description": "生物量反演、海（湖）岸线",
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 459,
+    "name": "LJ4I_UVI",
+    "alias": "人民健康号夜光数据",
+    "type": 0,
+    "catalogName": "珞珈系列产品",
+    "resolution": "150米",
+    "crs": "WGS84",
+    "imageCount": "4",
+    "dataSize": "0.2 GB",
+    "area": "全国",
+    "mission": "人民健康号",
+    "sensor": "光学",
+    "productLevel": "L1A",
+    "description": "人民健康号（珞珈四号01星）由武汉大学宇航科学与技术研究院总体设计，联合哈尔滨工大卫星技术有限公司、中国科学院长春光学精密机械与物理研究所等单位研制，旨在通过“遥感+医学”融合创新，建立面向环境健康因素的广域综合监测系统，实现对影响人类健康的“水-土-气”等环境因子的高精度遥感智能反演，填补全球健康研究领域遥感监测空白。\n2024年9月24日10时31分，人民健康号搭乘捷龙三号固体运载火箭，在山东海阳东方航天港点火升空，顺利进入预定轨道。该卫星具备多种先进功能，涵盖可见光高光谱成像、紫外多光谱成像等多种任务模式，拥有在轨数据采集与处理能力，业务化运行基础扎实，数传速率达每秒900M。LJ4I_UVI 为人民健康号核心夜光数据产品，产品级别为 L1A。",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(\r\n    coverageID=\"LJ04_UVI_E34.812_N32.733_20250405T0402_001_L1A\", productID=\"LJ4I_UVI\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage,[\"B1\"])\r\nvis_params = {\"min\": 0, \"max\": 10000}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(34.79359769565, 32.73479413505, 8)",
+    "band_count": 1,
+    "bands": [
+     {
+      "bandNum": "B1",
+      "bandName": "Night",
+      "bandRank": null,
+      "spectrumMin": 380.0,
+      "spectrumMax": 760.0,
+      "description": "夜光遥感",
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 332,
+    "name": "GF6_ARD_WFV_EO",
+    "alias": "高分六号ARD级WFV传感器产品",
+    "type": 0,
+    "catalogName": "高分系列产品",
+    "resolution": "16米",
+    "crs": "WGS84/UTM",
+    "imageCount": "1237",
+    "dataSize": "6.1 TB",
+    "area": "全国",
+    "mission": "高分六号",
+    "sensor": "多光谱",
+    "productLevel": "ARD",
+    "description": "高分六号ARD级WFV传感器产品是由高分六号卫星搭载的宽幅可见光与近红外扫描仪获取的多光谱遥感影像，经过辐射定标、大气校正与正射校正等预处理生成的分析就绪数据产品。产品空间分辨率为 16 米，幅宽约为 800 公里，提供四个波段数据，适用于大范围农情监测、生态环境评估和土地资源调查等领域。\n\n",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(\r\n    coverageID=\"GF6_WFV_E92.6_N40.2_20230827_L1A1420346385-2\", productID=\"GF6_ARD_WFV_EO\")\r\nvis_params = {}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(92.70, 40.11, 10)",
+    "band_count": 13,
+    "bands": [
+     {
+      "bandNum": "B1",
+      "bandName": "Blue",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B2",
+      "bandName": "Green",
+      "bandRank": 2,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B3",
+      "bandName": "Red",
+      "bandRank": 3,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B4",
+      "bandName": "Near-Infrared",
+      "bandRank": 4,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B5",
+      "bandName": "Red_edge_1",
+      "bandRank": 5,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "短波红外1"
+     },
+     {
+      "bandNum": "B6",
+      "bandName": "Red_edge_2",
+      "bandRank": 6,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "短波红外1"
+     },
+     {
+      "bandNum": "B7",
+      "bandName": "Coastal",
+      "bandRank": 7,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "短波红外1"
+     },
+     {
+      "bandNum": "B8",
+      "bandName": "Yellow",
+      "bandRank": 8,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "短波红外1"
+     },
+     {
+      "bandNum": "VAA",
+      "bandName": "VAA",
+      "bandRank": 9,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "VZA",
+      "bandName": "VZA",
+      "bandRank": 10,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "SAA",
+      "bandName": "SAA",
+      "bandRank": 11,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "SZA",
+      "bandName": "SZA",
+      "bandRank": 12,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "QA",
+      "bandName": "QA",
+      "bandRank": 13,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 200,
+    "name": "GF1_ARD_WFV3_EO",
+    "alias": "高分一号 ARD 级 WFV3 传感器产品",
+    "type": 0,
+    "catalogName": "高分系列产品",
+    "resolution": "16米",
+    "crs": "WGS84/UTM",
+    "imageCount": "530",
+    "dataSize": "4.0 TB",
+    "area": "全国",
+    "mission": "高分一号",
+    "sensor": "多光谱",
+    "productLevel": "ARD",
+    "description": "高分一号 ARD 级 WFV3 传感器产品是由高分一号卫星搭载的宽幅可见光与近红外扫描仪（WFV3）获取的多光谱遥感数据，经过辐射定标、几何校正和大气校正处理，生成具备地表真实反射率特征的分析就绪产品。该产品具有 16 米空间分辨率，包含 4 个波段（蓝、绿、红、近红外），广泛适用于土地覆盖分类、农业监测、水体变化分析等遥感应用场景。\n\n",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(\r\n    coverageID=\"GF1_WFV3_E103.5_N35.6_20230709_L1A0007386026\", productID=\"GF1_ARD_WFV3_EO\")\r\nvis_params = {}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(103.57, 35.58, 11)",
+    "band_count": 9,
+    "bands": [
+     {
+      "bandNum": "B1",
+      "bandName": "Blue",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B2",
+      "bandName": "Green",
+      "bandRank": 2,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B3",
+      "bandName": "Red",
+      "bandRank": 3,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B4",
+      "bandName": "Near-Infrared",
+      "bandRank": 4,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "VAA",
+      "bandName": "VAA",
+      "bandRank": 5,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "VZA",
+      "bandName": "VZA",
+      "bandRank": 6,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "SAA",
+      "bandName": "SAA",
+      "bandRank": 7,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "SZA",
+      "bandName": "SZA",
+      "bandRank": 8,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "QA",
+      "bandName": "QA",
+      "bandRank": 9,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 201,
+    "name": "GF1_ARD_WFV4_EO",
+    "alias": "高分一号 ARD 级 WFV4 传感器产品",
+    "type": 0,
+    "catalogName": "高分系列产品",
+    "resolution": "16米",
+    "crs": "WGS84/UTM",
+    "imageCount": "435",
+    "dataSize": "3.7 TB",
+    "area": "全国",
+    "mission": "高分一号",
+    "sensor": "多光谱",
+    "productLevel": "ARD",
+    "description": "高分一号 ARD 级 WFV4 传感器产品是基于高分一号卫星宽幅成像仪4（WFV4）数据生成的标准化分析就绪数据产品。该产品通过几何校正、大气校正、辐射定标等预处理，提供高几何精度与辐射一致性的多光谱地表反射率数据，可直接用于土地覆盖变化分析、农业遥感、生态环境监测等应用场景。产品具备统一的坐标参考系和标准数据格式，便于用户在多时相、多源遥感分析中快速集成和使用。",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(\r\n    coverageID=\"GF1_WFV4_E100.7_N21.8_20230521_L1A0007291985\", productID=\"GF1_ARD_WFV4_EO\")\r\nvis_params = {}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(100.83, 21.79, 11)",
+    "band_count": 9,
+    "bands": [
+     {
+      "bandNum": "B1",
+      "bandName": "Blue",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B2",
+      "bandName": "Green",
+      "bandRank": 2,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B3",
+      "bandName": "Red",
+      "bandRank": 3,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B4",
+      "bandName": "Near-Infrared",
+      "bandRank": 4,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "VAA",
+      "bandName": "VAA",
+      "bandRank": 5,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "VZA",
+      "bandName": "VZA",
+      "bandRank": 6,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "SAA",
+      "bandName": "SAA",
+      "bandRank": 7,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "SZA",
+      "bandName": "SZA",
+      "bandRank": 8,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "QA",
+      "bandName": "QA",
+      "bandRank": 9,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 198,
+    "name": "GF1_ARD_WFV1_EO",
+    "alias": "高分一号 ARD 标准产品（WFV1）",
+    "type": 0,
+    "catalogName": "高分系列产品",
+    "resolution": "16米",
+    "crs": "WGS84/UTM",
+    "imageCount": "522",
+    "dataSize": "4.2 TB",
+    "area": "全国",
+    "mission": "高分一号",
+    "sensor": "多光谱",
+    "productLevel": "ARD",
+    "description": "高分一号 ARD 标准产品（WFV1）基于高分一号卫星 WFV1 传感器获取的多光谱数据，经过一系列预处理工序，生成标准化的地表反射率产品，广泛用于农业、城市、环境等领域的遥感分析。\n",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(\r\n    coverageID=\"GF1_WFV1_E118.4_N39.7_20230702_L1A0007374713\", productID=\"GF1_ARD_WFV1_EO\")\r\nvis_params = {}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(118.37, 39.65, 11)",
+    "band_count": 9,
+    "bands": [
+     {
+      "bandNum": "B1",
+      "bandName": "Blue",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B2",
+      "bandName": "Green",
+      "bandRank": 2,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B3",
+      "bandName": "Red",
+      "bandRank": 3,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B4",
+      "bandName": "Near-Infrared",
+      "bandRank": 4,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "VAA",
+      "bandName": "VAA",
+      "bandRank": 5,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "VZA",
+      "bandName": "VZA",
+      "bandRank": 6,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "SAA",
+      "bandName": "SAA",
+      "bandRank": 7,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "SZA",
+      "bandName": "SZA",
+      "bandRank": 8,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "QA",
+      "bandName": "QA",
+      "bandRank": 9,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 199,
+    "name": "GF1_ARD_WFV2_EO",
+    "alias": "高分一号 ARD 级 WFV2 传感器产品",
+    "type": 0,
+    "catalogName": "高分系列产品",
+    "resolution": "16米",
+    "crs": "WGS84/UTM",
+    "imageCount": "526",
+    "dataSize": "2.7 TB",
+    "area": "全国",
+    "mission": "高分一号",
+    "sensor": "多光谱",
+    "productLevel": "ARD",
+    "description": "高分一号 ARD 级 WFV2 传感器产品是由高分一号卫星搭载的第二路宽幅成像仪获取的影像，经多级预处理后形成地表反射率产品。适用于土地变化检测、生态环境监测等遥感分析应用。\n",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(\r\n    coverageID=\"GF1_WFV2_E100.7_N32.6_20230529_L1A0007305279\", productID=\"GF1_ARD_WFV2_EO\")\r\nvis_params = {}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(100.68, 32.62, 11)",
+    "band_count": 9,
+    "bands": [
+     {
+      "bandNum": "B1",
+      "bandName": "Blue",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B2",
+      "bandName": "Green",
+      "bandRank": 2,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B3",
+      "bandName": "Red",
+      "bandRank": 3,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B4",
+      "bandName": "Near-Infrared",
+      "bandRank": 4,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "VAA",
+      "bandName": "VAA",
+      "bandRank": 5,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "VZA",
+      "bandName": "VZA",
+      "bandRank": 6,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "SAA",
+      "bandName": "SAA",
+      "bandRank": 7,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "SZA",
+      "bandName": "SZA",
+      "bandRank": 8,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "QA",
+      "bandName": "QA",
+      "bandRank": 9,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 202,
+    "name": "GISA2.0",
+    "alias": "1972-2019全球不透水面30米分辨率产品(GISA-2.0) ",
+    "type": 0,
+    "catalogName": "GISA系列产品",
+    "resolution": "30米",
+    "crs": "WGS84",
+    "imageCount": "925",
+    "dataSize": "382.9 GB",
+    "area": "全球",
+    "mission": "Landsat 8",
+    "sensor": "专题数据",
+    "productLevel": "L3",
+    "description": "此数据集采用自1972年来的超过三百万景Landsat影像, 研发了一套从20世纪70年代至今的最细时空粒度的全 球不透水面产品(GISA)。以全球270个城市随机选取的120,777参考点验证, 其漏报率、虚警率和F-score分别为 5.16%、0.82%和0.954. 本数据集基于团队提出的一种新的全球ISA地图绘制方法, 包括半自动全局样本采集、局部自适应分类和时空后处理，提供1985年以前的全球不透水面(ISA)分布, 具有最长的时间跨度(1972~2019年)和最高的精度(经大量随机验证点和第三方验证样本集评价)，此外将整个全球陆表作为实验区域来提取ISA(不是仅从城市范围内提取), 因此数据集成果有效减少了低估。",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(coverageID=\"GISA_v02_1972_2019_0S_100E\", productID=\"GISA2.0\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage, [\"GISA\"])\r\nvis_params = {}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(104.75, -2.90, 9)",
+    "band_count": 1,
+    "bands": [
+     {
+      "bandNum": "GISA",
+      "bandName": "Global Impervious Surface Area",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 143,
+    "name": "LC08_L1TP_Hubei1420_Fmask4",
+    "alias": "Landsat8 L1TP云掩膜Fmask4.0定量遥感产品",
+    "type": 0,
+    "catalogName": "HiGLASS系列产品",
+    "resolution": "30米",
+    "crs": null,
+    "imageCount": "2363",
+    "dataSize": "184.1 GB",
+    "area": "",
+    "mission": "Landsat 8",
+    "sensor": "专题数据",
+    "productLevel": null,
+    "description": "湖北省Landsat-8 2014-2020年云掩膜Fmask4.0的定量遥感产品",
+    "sampleCode": "import oge\r\n# 初始化\r\noge.initialize()\r\nservice = oge.Service()\r\n# 读取数据\r\ncoverage = service.getCoverage(\"LC08_L1TP_127039_20140103_20170427_01_T1\", \"LC08_L1TP_Hubei1420_Fmask4\")\r\nvis_params = {}\r\n# 输出结果\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\n# 设置前端地图中心位置和显示层级\r\noge.mapclient.centerMap(107.7, 30.4, 7)",
+    "band_count": 1,
+    "bands": [
+     {
+      "bandNum": "Fmask4",
+      "bandName": "Fmask4",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 139,
+    "name": "LC08_L1TP_Hubei1420_albedo",
+    "alias": "Landsat8 L1TP反照率albedo定量遥感产品",
+    "type": 0,
+    "catalogName": "HiGLASS系列产品",
+    "resolution": "30米",
+    "crs": null,
+    "imageCount": "1870",
+    "dataSize": "594.4 GB",
+    "area": "",
+    "mission": "Landsat 8",
+    "sensor": "专题数据",
+    "productLevel": null,
+    "description": "湖北省Landsat-8 2014-2020年反照率albedo的定量遥感产品",
+    "sampleCode": "import oge\r\n# 初始化\r\noge.initialize()\r\nservice = oge.Service()\r\n# 读取数据\r\ncoverage = service.getCoverage(\"LC08_L1TP_127037_20140103_20220208_01_T1_swalb_bv00\", \"LC08_L1TP_Hubei1420_albedo\")\r\nvis_params = {}\r\n# 输出结果\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\n# 设置前端地图中心位置和显示层级\r\noge.mapclient.centerMap(108.29, 33, 7)",
+    "band_count": 1,
+    "bands": [
+     {
+      "bandNum": "albedo",
+      "bandName": "Surface Albedo",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 133,
+    "name": "LC08_L1TP_Hubei1420_sr",
+    "alias": "Landsat8 L1TP地表反射率SR的定量遥感产品",
+    "type": 0,
+    "catalogName": "HiGLASS系列产品",
+    "resolution": "30米",
+    "crs": null,
+    "imageCount": "2301",
+    "dataSize": "3.3 TB",
+    "area": "",
+    "mission": "Landsat 8",
+    "sensor": "专题数据",
+    "productLevel": "L1TP",
+    "description": "湖北省Landsat-8 2014-2020年地表反射率的定量遥感产品",
+    "sampleCode": "import oge\r\n\r\n# 初始化\r\noge.initialize()\r\nservice = oge.Service()\r\n\r\n# 读取数据\r\nlc08 = service.getCoverage(coverageID=\"LC08_L1TP_125040_20160923_20180523_01_T1_sr\", productID=\"LC08_L1TP_Hubei1420_sr\")\r\nlc08_d = service.getProcess(\"Coverage.toFloat\").execute(lc08)\r\n# 调⽤函数处理数据\r\nndwi = service.getProcess(\"Coverage.normalizedDifference\").execute(lc08_d, [\"band3\", \"band5\"])\r\nresult = service.getProcess(\"Coverage.setValueRangeByPercentage\").execute(ndwi, 0.05, 0.95)\r\n# 设置渲染模式\r\nvis_params = {'min': -1, 'max': 1, \"palette\": [\"gold\", \"yellow\", \"brown\", \"lightblue\", \"blue\"]}\r\n# 输出结果\r\nresult.styles(vis_params).getMap(\"result\")\r\n# 设置前端地图中⼼位置\r\noge.mapclient.centerMap(110.5, 28.8, 8)\r\n",
+    "band_count": 8,
+    "bands": [
+     {
+      "bandNum": "aerosol",
+      "bandName": "Aerosol",
+      "bandRank": 0,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "band1",
+      "bandName": "Coastal",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "band2",
+      "bandName": "Blue",
+      "bandRank": 2,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "band3",
+      "bandName": "Green",
+      "bandRank": 3,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "band4",
+      "bandName": "Red",
+      "bandRank": 4,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "band5",
+      "bandName": "Near-Infrared",
+      "bandRank": 5,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "band6",
+      "bandName": "SWIR 1",
+      "bandRank": 6,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "band7",
+      "bandName": "SWIR 2",
+      "bandRank": 7,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 140,
+    "name": "LC08_L1TP_Hubei1420_FVC",
+    "alias": "Landsat8 L1TP植被覆盖度FVC定量遥感产品",
+    "type": 0,
+    "catalogName": "HiGLASS系列产品",
+    "resolution": "30米",
+    "crs": null,
+    "imageCount": "1785",
+    "dataSize": "139.0 GB",
+    "area": "",
+    "mission": "Landsat 8",
+    "sensor": "专题数据",
+    "productLevel": null,
+    "description": "湖北省Landsat-8 2014-2020年植被覆盖度FVC的定量遥感产品",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(\r\n    coverageID=\"LC08_L1TP_126040_20170309_20170317_01_T2\", productID=\"LC08_L1TP_Hubei1420_FVC\")\r\nvis_params = {}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(108.6, 28.6, 8)",
+    "band_count": 1,
+    "bands": [
+     {
+      "bandNum": "FVC",
+      "bandName": "Fractional Vegetation Cover",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 141,
+    "name": "LC08_L1TP_Hubei1420_NDVI",
+    "alias": "Landsat8 L1TPd归一化植被指数NDVI定量遥感产品",
+    "type": 0,
+    "catalogName": "HiGLASS系列产品",
+    "resolution": "30米",
+    "crs": null,
+    "imageCount": "2363",
+    "dataSize": "368.1 GB",
+    "area": "",
+    "mission": "Landsat 8",
+    "sensor": "专题数据",
+    "productLevel": null,
+    "description": "湖北省Landsat-8 2014-2020年归一化植被指数NDVI的定量遥感产品",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(\r\n    coverageID=\"LC08_L1TP_126040_20170309_20170317_01_T2\", productID=\"LC08_L1TP_Hubei1420_NDVI\")\r\nresult = service.getProcess(\"Coverage.setValueRangeByPercentage\").execute(coverage, 0.05, 0.95)\r\n# 设置渲染模式\r\nvis_params = {'min': -1, 'max': 1, \"palette\": [\"gold\", \"yellow\", \"brown\", \"lightblue\", \"blue\"]}\r\n\r\nresult.styles(vis_params).getMap(\"result\")\r\noge.mapclient.centerMap(108.6, 28.6, 8)\r\n",
+    "band_count": 1,
+    "bands": [
+     {
+      "bandNum": "ndvi",
+      "bandName": "NDVI",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 142,
+    "name": "LC08_L1TP_Hubei1420_AOD",
+    "alias": "Landsat8 L1TP气溶胶AOD定量遥感产品",
+    "type": 0,
+    "catalogName": "HiGLASS系列产品",
+    "resolution": "30米",
+    "crs": null,
+    "imageCount": "150726",
+    "dataSize": "0 B",
+    "area": "",
+    "mission": "Landsat 8",
+    "sensor": "专题数据",
+    "productLevel": null,
+    "description": "湖北省Landsat-8 2014-2020年气溶胶AOD的定量遥感产品",
+    "sampleCode": null,
+    "band_count": 1,
+    "bands": [
+     {
+      "bandNum": "AOD",
+      "bandName": "Aerosol Optical Depth",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 369,
+    "name": "HiGLASS_SR_Landsat_30m",
+    "alias": "HiGLASS系列产品的地表反射率数据SR",
+    "type": 0,
+    "catalogName": "HiGLASS系列产品",
+    "resolution": "30米",
+    "crs": null,
+    "imageCount": "3312",
+    "dataSize": "0 B",
+    "area": "",
+    "mission": "Landsat 5",
+    "sensor": "专题数据",
+    "productLevel": null,
+    "description": "是基于 Landsat 系列卫星影像数据（包括 Landsat-5 TM、Landsat-7 ETM+ 和 Landsat-8 OLI 等），在 HiGLASS 框架下经过大气校正、几何精校正及质量控制后生成的 30 米地表反射率产品。该产品反映了地表真实的光谱特征，消除了大气影响，适用于长时间序列的陆地生态环境监测、土地利用/覆盖变化研究、农业监测以及碳循环评估等高精度遥感应用。",
+    "sampleCode": "",
+    "band_count": 7,
+    "bands": [
+     {
+      "bandNum": "B1",
+      "bandName": "Coastal",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "B2",
+      "bandName": "Blue",
+      "bandRank": 2,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "绿"
+     },
+     {
+      "bandNum": "B3",
+      "bandName": "Green",
+      "bandRank": 3,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "红"
+     },
+     {
+      "bandNum": "B4",
+      "bandName": "Red",
+      "bandRank": 4,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "近红外"
+     },
+     {
+      "bandNum": "B5",
+      "bandName": "Near-Infrared",
+      "bandRank": 5,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "短波红外1"
+     },
+     {
+      "bandNum": "B6",
+      "bandName": "SWIR 1",
+      "bandRank": 6,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "短波红外2"
+     },
+     {
+      "bandNum": "B7",
+      "bandName": "SWIR 2",
+      "bandRank": 7,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "短波红外1"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "category": "气象观测",
+  "catalogs": [
+   "ERA5系列产品",
+   "GPM系列产品"
+  ],
+  "count": 3,
+  "products": [
+   {
+    "id": 162,
+    "name": "ERA5_2mTemperature_China_Monthly",
+    "alias": "ERA5的2米露点温度的月平均数据",
+    "type": 0,
+    "catalogName": "ERA5系列产品",
+    "resolution": "2米",
+    "crs": null,
+    "imageCount": "277",
+    "dataSize": "1.2 GB",
+    "area": "",
+    "mission": null,
+    "sensor": null,
+    "productLevel": null,
+    "description": "ERA5是ECMWF对全球气候的第五代大气再分析。再分析将模型数据与来自世界各地的观测数据结合起来，形成一个全球完整的、一致的数据集。ERA5取代了其前身ERA-Interim再分析。这里使用ERA5的2米露点温度的月平均数据",
+    "sampleCode": "test",
+    "band_count": 1,
+    "bands": [
+     {
+      "bandNum": "2m_Temperature",
+      "bandName": "2m_temperature",
+      "bandRank": 0,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 163,
+    "name": "ERA5_TotalPrecipitation_China_Monthly",
+    "alias": "ERA5的总降水量的月平均数据",
+    "type": 0,
+    "catalogName": "ERA5系列产品",
+    "resolution": null,
+    "crs": null,
+    "imageCount": "277",
+    "dataSize": "1.2 GB",
+    "area": "",
+    "mission": null,
+    "sensor": null,
+    "productLevel": null,
+    "description": "ERA5是ECMWF对全球气候的第五代大气再分析。再分析将模型数据与来自世界各地的观测数据结合起来，形成一个全球完整的、一致的数据集。ERA5取代了其前身ERA-Interim再分析。这里使用ERA5的总降水量的月平均数据",
+    "sampleCode": "test",
+    "band_count": 1,
+    "bands": [
+     {
+      "bandNum": "total_precipitation",
+      "bandName": "total_precipitation",
+      "bandRank": 0,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 158,
+    "name": "GPM_Precipitation_China_Monthly",
+    "alias": "GPM_Precipitation_China_month",
+    "type": 0,
+    "catalogName": "GPM系列产品",
+    "resolution": null,
+    "crs": null,
+    "imageCount": "256",
+    "dataSize": "384.3 MB",
+    "area": "",
+    "mission": null,
+    "sensor": null,
+    "productLevel": null,
+    "description": "来源于GPM（Global Precipitation Measurement，全球降水量数据），范围是中国大陆，时间分辨率为1月，时间跨度为2000年6月至2021年9月。空间分辨率为0.1°*0.1°",
+    "sampleCode": null,
+    "band_count": 1,
+    "bands": [
+     {
+      "bandNum": "Precipitation",
+      "bandName": "Precipitation",
+      "bandRank": 0,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "category": "高程数据",
+  "catalogs": [
+   "高程数据",
+   "全球正射影像"
+  ],
+  "count": 2,
+  "products": [
+   {
+    "id": 124,
+    "name": "ASTER_GDEM_DEM30",
+    "alias": "全球30m的DEM数据（ASTER_GDEM）",
+    "type": 0,
+    "catalogName": "高程数据",
+    "resolution": "30米",
+    "crs": "WGS84",
+    "imageCount": "22466",
+    "dataSize": "847.4 GB",
+    "area": "全球",
+    "mission": "Terra",
+    "sensor": "专题数据",
+    "productLevel": "L3",
+    "description": "ASTER GDEM 产品是由 Terra 卫星搭载的 ASTER 传感器获取的立体影像生成的全球数字高程模型，分辨率为 30 米。该产品覆盖全球陆地区域，采用立体像对影像经过自动立体匹配和拼接处理生成，并在多个版本中不断改进数据质量。ASTER GDEM 数据能够提供地表的高程信息，广泛应用于地形分析、水文模拟、土地利用研究、自然灾害评估等领域。",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(coverageID=\"ASTGTM_N00E006\", productID=\"ASTER_GDEM_DEM30\")\r\nvis_params = {\"min\": -100, \"max\": 100}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(6.5, 0.5, 10)",
+    "band_count": 1,
+    "bands": [
+     {
+      "bandNum": "dem30",
+      "bandName": "ASTER_GDEM_DEM30",
+      "bandRank": 0,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 168,
+    "name": "Global_DOM10",
+    "alias": "全球数字正射影像10m",
+    "type": 0,
+    "catalogName": "全球正射影像",
+    "resolution": "10米",
+    "crs": "WGS84/UTM",
+    "imageCount": "3502",
+    "dataSize": "9.5 TB",
+    "area": "全球",
+    "mission": null,
+    "sensor": "专题数据",
+    "productLevel": "L3",
+    "description": "全球 10 米数字正射影像产品是基于多源遥感影像经过几何精校正、辐射一致化与镶嵌处理生成的全球遥感基础底图。该产品空间分辨率为 10 米，经过地形校正与正射化处理，能够准确反映地表真实几何位置特征。其影像色彩自然、覆盖范围广，可作为全球尺度的遥感底图数据，适用于地理信息系统（GIS）、地图制图、环境监测、城市规划、资源调查与地表覆盖分析等多种应用场景。",
+    "sampleCode": "import oge\r\noge.initialize()\r\nservice = oge.Service()\r\ncoverage = service.getCoverage(\r\n    coverageID=\"NI50B002002\", productID=\"Global_DOM10\")\r\ncoverage = service.getProcess(\"Coverage.selectBands\").execute(coverage, [\"dom10_band1\"])\r\nvis_params = {}\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\noge.mapclient.centerMap(117, 33, 7)\r\n",
+    "band_count": 3,
+    "bands": [
+     {
+      "bandNum": "dom10_band1",
+      "bandName": "dom10_band1",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "dom10_band2",
+      "bandName": "dom10_band2",
+      "bandRank": 2,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "dom10_band3",
+      "bandName": "dom10_band3",
+      "bandRank": 3,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "category": "定量遥感产品",
+  "catalogs": [
+   "定量遥感产品"
+  ],
+  "count": 2,
+  "products": [
+   {
+    "id": 343,
+    "name": "LC_Ref",
+    "alias": "Landsat地表反射率的定量遥感产品",
+    "type": 0,
+    "catalogName": "定量遥感产品",
+    "resolution": null,
+    "crs": "WGS84/UTM",
+    "imageCount": "6098",
+    "dataSize": "3.5 TB",
+    "area": "全球",
+    "mission": null,
+    "sensor": null,
+    "productLevel": null,
+    "description": "Landsat地表反射率的定量遥感产品",
+    "sampleCode": "import oge\r\n# 初始化\r\noge.initialize()\r\nservice = oge.Service()\r\n# 读取数据\r\ncoverage = service.getCoverage(\"LC08_L1TP_121040_20130328_20170505_01_T1\", \"LC_Ref\")\r\nvis_params = {}\r\n# 输出结果\r\ncoverage.styles(vis_params).getMap(\"coverage\")\r\n# 设置前端地图中心位置和显示层级\r\noge.mapclient.centerMap(115.8, 28.9, 7)",
+    "band_count": 10,
+    "bands": [
+     {
+      "bandNum": "sr_band1",
+      "bandName": "Coastal",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sr_band2",
+      "bandName": "Blue",
+      "bandRank": 2,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sr_band3",
+      "bandName": "Green",
+      "bandRank": 3,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sr_band4",
+      "bandName": "Red",
+      "bandRank": 4,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sr_band5",
+      "bandName": "Near-Infrared",
+      "bandRank": 5,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sr_band6",
+      "bandName": "SWIR 1",
+      "bandRank": 6,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sr_band7",
+      "bandName": "SWIR 2",
+      "bandRank": 7,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "sr_aerosol",
+      "bandName": "Aerosol",
+      "bandRank": 8,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": "蓝"
+     },
+     {
+      "bandNum": "radsat_qa",
+      "bandName": "Quality Assessment",
+      "bandRank": 9,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     },
+     {
+      "bandNum": "bqa",
+      "bandName": "BQA",
+      "bandRank": 10,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   },
+   {
+    "id": 342,
+    "name": "LC_Fmask4",
+    "alias": "Landsat云掩膜Fmask4.0的定量遥感产品",
+    "type": 0,
+    "catalogName": "定量遥感产品",
+    "resolution": null,
+    "crs": "WGS84/UTM",
+    "imageCount": "7205",
+    "dataSize": "0 B",
+    "area": "全球",
+    "mission": null,
+    "sensor": null,
+    "productLevel": null,
+    "description": "Landsat云掩膜Fmask4.0的定量遥感产品",
+    "sampleCode": null,
+    "band_count": 1,
+    "bands": [
+     {
+      "bandNum": "Fmask4",
+      "bandName": "Fmask4",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": null,
+      "inferred_role": null
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "category": "基础地理矢量",
+  "catalogs": [
+   "基础地理矢量",
+   "地名地址矢量"
+  ],
+  "count": 6,
+  "products": [
+   {
+    "id": 602,
+    "name": "northamerica_contries",
+    "alias": "北美洲国家分界",
+    "type": 1,
+    "catalogName": "基础地理矢量",
+    "resolution": null,
+    "crs": null,
+    "imageCount": null,
+    "dataSize": null,
+    "area": null,
+    "mission": null,
+    "sensor": null,
+    "productLevel": null,
+    "description": "北美洲国家分界",
+    "sampleCode": "",
+    "band_count": 0,
+    "bands": []
+   },
+   {
+    "id": 600,
+    "name": "northamerica_road",
+    "alias": "北美洲公路网",
+    "type": 1,
+    "catalogName": "基础地理矢量",
+    "resolution": null,
+    "crs": null,
+    "imageCount": null,
+    "dataSize": null,
+    "area": null,
+    "mission": null,
+    "sensor": null,
+    "productLevel": null,
+    "description": "北美洲公路网",
+    "sampleCode": "",
+    "band_count": 0,
+    "bands": []
+   },
+   {
+    "id": 601,
+    "name": "northamerica_airport",
+    "alias": "北美洲机场",
+    "type": 1,
+    "catalogName": "基础地理矢量",
+    "resolution": null,
+    "crs": null,
+    "imageCount": null,
+    "dataSize": null,
+    "area": null,
+    "mission": null,
+    "sensor": null,
+    "productLevel": null,
+    "description": "北美洲机场点位",
+    "sampleCode": "",
+    "band_count": 0,
+    "bands": []
+   },
+   {
+    "id": 492,
+    "name": "iceland_water",
+    "alias": "冰岛水系分布",
+    "type": 1,
+    "catalogName": "基础地理矢量",
+    "resolution": null,
+    "crs": null,
+    "imageCount": null,
+    "dataSize": null,
+    "area": "冰岛",
+    "mission": null,
+    "sensor": null,
+    "productLevel": null,
+    "description": "冰岛水系分布",
+    "sampleCode": "",
+    "band_count": 0,
+    "bands": []
+   },
+   {
+    "id": 491,
+    "name": "iceland_road",
+    "alias": "冰岛路网",
+    "type": 1,
+    "catalogName": "基础地理矢量",
+    "resolution": null,
+    "crs": null,
+    "imageCount": null,
+    "dataSize": null,
+    "area": "冰岛",
+    "mission": null,
+    "sensor": null,
+    "productLevel": null,
+    "description": "冰岛路网",
+    "sampleCode": "",
+    "band_count": 0,
+    "bands": []
+   },
+   {
+    "id": 490,
+    "name": "iceland_poi",
+    "alias": "冰岛POI",
+    "type": 1,
+    "catalogName": "地名地址矢量",
+    "resolution": null,
+    "crs": null,
+    "imageCount": null,
+    "dataSize": null,
+    "area": "冰岛",
+    "mission": null,
+    "sensor": null,
+    "productLevel": null,
+    "description": "冰岛POI兴趣点",
+    "sampleCode": "",
+    "band_count": 0,
+    "bands": []
+   }
+  ]
+ },
+ {
+  "category": "ARD产品",
+  "catalogs": [
+   "ARD产品"
+  ],
+  "count": 1,
+  "products": [
+   {
+    "id": 153,
+    "name": "The_Harmonized_GF1-WFV_and_Sentinel-2_surface_reflectance_dataset",
+    "alias": "由Sentinel-2数据和高分1号WFV数据经一致性预处理构建的虚拟星座地表反射率数据集",
+    "type": 0,
+    "catalogName": "ARD产品",
+    "resolution": null,
+    "crs": null,
+    "imageCount": "10",
+    "dataSize": "13.5 GB",
+    "area": "",
+    "mission": null,
+    "sensor": null,
+    "productLevel": null,
+    "description": "由Sentinel-2数据和高分1号WFV数据经一致性预处理构建的虚拟星座地表反射率数据集",
+    "sampleCode": null,
+    "band_count": 0,
+    "bands": []
+   }
+  ]
+ },
+ {
+  "category": "中国专题产品",
+  "catalogs": [
+   "中国专题产品"
+  ],
+  "count": 1,
+  "products": [
+   {
+    "id": 503,
+    "name": "CN_FCH30_2020",
+    "alias": "2020年中国30m冠层高度产品",
+    "type": 0,
+    "catalogName": "中国专题产品",
+    "resolution": "30米",
+    "crs": "WGS84",
+    "imageCount": "1",
+    "dataSize": "76.44 GB",
+    "area": "中国",
+    "mission": null,
+    "sensor": "专题数据",
+    "productLevel": null,
+    "description": "本产品融合了2019-2023年NASA GEDI星载激光雷达离散光斑采样数据，以及2020年的Sentinel-1/2多源卫星遥感影像数据； 通过对GEDI进行地形校正得到坡度不敏感的GEDI-SAWA参考高度数据，同时依据植被分区构建物候一致的有叶季影像合成特征，基于U-Net深度学习模型，制作中国10m分辨率的冠层高度图，最终经过均值聚合，生成最终2020年30m分辨率冠层高度产品。",
+    "sampleCode": "",
+    "band_count": 1,
+    "bands": [
+     {
+      "bandNum": "B1",
+      "bandName": "CN_FCH30_2020",
+      "bandRank": 1,
+      "spectrumMin": null,
+      "spectrumMax": null,
+      "description": "",
+      "inferred_role": "蓝"
+     }
+    ]
+   }
+  ]
+ }
+]
