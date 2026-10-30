@@ -166,7 +166,11 @@ def main() -> None:
 
     # 基准产品集合（冻结评测集的产品）
     ext = json.loads((DATA / "dataset_matching_extended.json").read_text(encoding="utf-8"))
-    main = json.loads((DATA / "dataset_matching.json").read_text(encoding="utf-8"))
+    # v1 main set (dataset_matching.json) removed from the release; its product set
+    # is a subset of the v2 benchmark, so the union (and thus the derived splits)
+    # is unchanged. Keep the union form for backward compatibility.
+    v1_path = DATA / "dataset_matching.json"
+    main = json.loads(v1_path.read_text(encoding="utf-8")) if v1_path.exists() else []
     bench_products = ({s["product_name"] for s in ext}
                       | {s["product_name"] for s in main})
     bench = [p for p in products_all if p["name"] in bench_products]

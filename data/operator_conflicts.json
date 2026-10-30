@@ -1,5 +1,6 @@
 [
  {
+  "type": "operator-level",
   "operator": "Coverage.NDSSI",
   "alias": "归一化悬浮泥沙指数",
   "description_says": [
@@ -10,6 +11,65 @@
    "蓝",
    "近红外"
   ],
+  "resolution": "以参数定义为准（参数为机器实际消费的接口）",
   "description": "归一化盐渍化指数算子用于计算归一化土壤盐渍化指数，通过红光波段（Red）与近红外波段（NIR）的归一化差值来评估土壤盐渍化程度。NDSSI公式为NDSSI=(Red-NIR)/(Red+NIR)，其原理基于盐渍化土壤在红光波段具有较高的光谱反射率，而在近红外波段的反射率相对较低，盐渍化越严重，该指数值越高。该指数在干旱和半干旱地区的土壤盐渍化监测、灌溉农业的土壤退化评估和土地整治规划中具有重要应用。在ArcGISPro中可通过RasterCalculator或Indices工具实现"
+ },
+ {
+  "type": "product-level",
+  "product": "GF6_ARD_WFV_EO",
+  "conflict": "波段标签与推断光谱角色不一致",
+  "items": [
+   {
+    "band": "B5",
+    "bandName": "Red_edge_1",
+    "inferred_role": "短波红外1",
+    "issue": "红边波段被推断为短波红外1；GF6 WFV 的红边波段波长范围平台元数据缺失（spectrumMin/Max 为 null），无法用波长证据纠正"
+   },
+   {
+    "band": "B7",
+    "bandName": "Coastal",
+    "inferred_role": "短波红外1",
+    "issue": "Coastal（海岸带蓝光）被推断为短波红外1；同上，元数据缺失"
+   },
+   {
+    "band": "B8",
+    "bandName": "Yellow",
+    "inferred_role": "短波红外1",
+    "issue": "Yellow（黄光）被推断为短波红外1；同上，元数据缺失"
+   }
+  ],
+  "resolution": "标注规则兜底（编号制 + 标签关键词）；主结果保留全量口径，教师与学生的相关错误已纳入'可信子集'敏感性分析"
+ },
+ {
+  "type": "product-level",
+  "product": "HiGLASS_SR_Landsat_30m",
+  "conflict": "多传感器融合产品的标签体系不自洽（L5 代与 L8 代命名混用）",
+  "items": [
+   {
+    "band": "B1",
+    "bandName": "Coastal",
+    "inferred_role": "蓝",
+    "issue": "Coastal 在 Landsat 惯例中为深蓝/海岸带，此处推断为蓝；与 B2(Blue→绿) 形成错位"
+   },
+   {
+    "band": "B2",
+    "bandName": "Blue",
+    "inferred_role": "绿",
+    "issue": "标签 Blue 但角色推断为绿——L5 代编号（B1 蓝/B2 绿/B3 红）与标签文本不一致"
+   },
+   {
+    "band": "B3",
+    "bandName": "Green",
+    "inferred_role": "红",
+    "issue": "标签 Green 但角色推断为红——同上"
+   },
+   {
+    "band": "B4",
+    "bandName": "Red",
+    "inferred_role": "近红外",
+    "issue": "标签 Red 但角色推断为近红外——L5 代 B4=近红外，标签文本却是 Red"
+   }
+  ],
+  "resolution": "标注规则兜底（编号制优先于标签文本：该产品实际遵循 L5 代编号惯例）；主结果保留全量口径，'可信子集'敏感性分析中教师相关错误几乎全部落在本产品与 GF6 上"
  }
 ]

@@ -1,0 +1,16 @@
+CalibBind benchmark data and derived suites
+============================================
+
+The benchmark files under `data/` (question sets, product band tables, platform census
+snapshot, distillation suites, LFO folds, the E-SWAP counterfactual suite, and derived
+lists such as EXCLUDED_PRODUCTS.md) are released under the
+Creative Commons Attribution 4.0 International license (CC BY 4.0).
+
+Full legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+
+You are free to share and adapt the data for any purpose, provided you give
+appropriate credit and indicate if changes were made. Suggested citation: the
+CalibBind paper (see README.md, Citation section).
+
+Band/product metadata was collected from the public OGE (Open Geo Engine) platform API;
+upstream data remains subject to its original terms.
