@@ -50,7 +50,7 @@ Each unit carries its own README describing contents, usage and licensing. Start
 @article{calibbind2026,
   title   = {CalibBind: Decision Model-Driven Parameter Matching between Remote Sensing
              Data and Processing Operators},
-  author  = {Qiao, Yun},
+  author  = {Qiao, Yun and Zhang, Mingda},
   journal = {Remote Sensing},
   year    = {2026},
   note    = {preprint}
