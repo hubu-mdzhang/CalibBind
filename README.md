@@ -1,6 +1,6 @@
 # CalibBind
 
-**Calibration-Preserving Decision Distillation for Parameter Binding in Remote Sensing Processing Platforms**
+**CalibBind: Decision Model-Driven Parameter Matching between Remote Sensing Data and Processing Operators**
 
 Operator parameters on remote-sensing cloud platforms (e.g. `redBandName`) must be bound to
 concrete data resources, but band naming is heterogeneous across sensors: the red band is
@@ -48,8 +48,8 @@ Each unit carries its own README describing contents, usage and licensing. Start
 
 ```bibtex
 @article{calibbind2026,
-  title   = {CalibBind: Calibration-Preserving Decision Distillation for Parameter
-             Binding in Remote Sensing Processing Platforms},
+  title   = {CalibBind: Decision Model-Driven Parameter Matching between Remote Sensing
+             Data and Processing Operators},
   author  = {Qiao, Yun},
   journal = {Remote Sensing},
   year    = {2026},
