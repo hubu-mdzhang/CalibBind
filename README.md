@@ -16,7 +16,7 @@ data, external benchmarks, and model weights can be published and cited independ
 
 ```
 CalibBind/
-├── CalibBind-bench/     Main OGE benchmark, derived suites, baselines and pipeline code
+├── CalibBind-bench/     Main OGE benchmark and derived suites, with standalone evaluation scripts
 │                        (579 questions, 33 products, 29 operators, T1–T5). CC BY 4.0 / MIT.
 ├── CalibBind-geo/       External GEE catalog-level benchmark (157 instances, 14 products).
 │                        CC BY 4.0.
@@ -30,7 +30,7 @@ Each unit carries its own README describing contents, usage and licensing. Start
 
 | Unit | What it contains | License |
 |---|---|---|
-| [CalibBind-bench](CalibBind-bench/README.md) | benchmark JSON, `distill/` `eswap/` `lfo/` suites, dataset card, pipeline & baseline scripts | data CC BY 4.0, code MIT |
+| [CalibBind-bench](CalibBind-bench/README.md) | benchmark JSON, `distill/` `eswap/` `lfo/` suites, dataset card, evaluation scripts | data CC BY 4.0, code MIT |
 | [CalibBind-geo](CalibBind-geo/README.md) | `calibbind_geo_v1.jsonl` + datasheet | data CC BY 4.0 |
 | [CalibBind-weights](CalibBind-weights/README.md) | 1 LoRA delta (Arm A seed 0), training config, model card, merge/inference scripts | Apache-2.0 |
 
