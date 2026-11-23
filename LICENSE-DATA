@@ -1,8 +1,8 @@
 CalibBind benchmark data and derived suites
 ============================================
 
-The benchmark files under `data/` (question sets, product band tables, platform census
-snapshot, distillation suites, LFO folds, the E-SWAP counterfactual suite, and derived
+The benchmark files in `CalibBind-bench/` and `CalibBind-geo/` (question sets, distillation
+suites, LFO folds, the E-SWAP counterfactual suite, the external GEE benchmark, and derived
 lists such as EXCLUDED_PRODUCTS.md) are released under the
 Creative Commons Attribution 4.0 International license (CC BY 4.0).
 
